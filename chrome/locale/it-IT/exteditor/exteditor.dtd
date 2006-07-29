@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Componi con External Editor">
+<!ENTITY exteditor_bt.tooltiptext "Componi i messaggi con il tuo editor di testo preferito">
+<!ENTITY exteditor_editAsHtml.label "Componi in HTML">
+<!ENTITY exteditor_editAsPlain.label "Componi in testo semplice">
+<!ENTITY exteditor-settings.title "Impostazioni di External Editor">
+<!ENTITY exteditor_exe.label "Imposta l'editor esterno">
+<!ENTITY exteditor_editor.value "Editor di testo">
+<!ENTITY exteditor_btBrowse.label "Sfoglia...">
+<!ENTITY exteditor_cbEditorUnicode.label "Editor abilitato per la codifica unicode">
+<!ENTITY exteditor_cbEditor83Filename.label "Questo editor richiede nomi di file nel formato MSDOS (8 lettere per il nome, più 3 per l'estensione)">
+<!ENTITY exteditor_warn.value "Attenzione: l'editor non deve essere già aperto nel momento in cui si compone il messaggio!">
+<!ENTITY exteditor_cbEditHeaders.label "Modifica intestazioni">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Permette di modificare le intestazioni">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Oggetto">
+<!ENTITY exteditor_cbEditHeaderTo.label "A">
+<!ENTITY exteditor_cbEditHeaderCc.label "Cc">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Ccn">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Rispondi a">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Gruppo discussione">

@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Editer avec External Editor">
+<!ENTITY exteditor_bt.tooltiptext "Editer le message dans votre &#233;diteur de texte pr&#233;f&#233;r&#233;">
+<!ENTITY exteditor_editAsHtml.label "Editer en HTML">
+<!ENTITY exteditor_editAsPlain.label "Editer en texte simple">
+<!ENTITY exteditor-settings.title "Param&#233;trage d'External Editor">
+<!ENTITY exteditor_exe.label "Ex&#233;cutable d'External Editor">
+<!ENTITY exteditor_editor.value "Editeur de texte">
+<!ENTITY exteditor_btBrowse.label "Parcourir...">
+<!ENTITY exteditor_cbEditorUnicode.label "Cet &#233;diteur g&#232;re l'Uniccode">
+<!ENTITY exteditor_cbEditor83Filename.label "Cet &#233;diteur n&#233;cessite des fichiers au format MSDOS 8+3">
+<!ENTITY exteditor_warn.value "ATTENTION: Votre &#233;diteur doit &#234;tre bloquant: il ne doit pas rendre la main avant d'avoir &#233;t&#233; ferm&#233;.">
+<!ENTITY exteditor_cbEditHeaders.label "Editer les ent&#234;tes">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Permet de modifier les ent&#234;tes du message">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Sujet">
+<!ENTITY exteditor_cbEditHeaderTo.label "Pour">
+<!ENTITY exteditor_cbEditHeaderCc.label "Cc">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Bcc">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "R&#233;pondre &#224;">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Forum">

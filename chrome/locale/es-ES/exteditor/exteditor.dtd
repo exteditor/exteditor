@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Editar en un editor externo">
+<!ENTITY exteditor_bt.tooltiptext "Editar el mensaje con su editor de textos preferido">
+<!ENTITY exteditor_editAsHtml.label "Editar como HTML">
+<!ENTITY exteditor_editAsPlain.label "Editar como texto sin formato">
+<!ENTITY exteditor-settings.title "Opciones External Editor">
+<!ENTITY exteditor_exe.label "Programa editor de textos externo">
+<!ENTITY exteditor_editor.value "Editor de textos">
+<!ENTITY exteditor_btBrowse.label "Elegir">
+<!ENTITY exteditor_cbEditorUnicode.label "El editor trabaja con código Unicode">
+<!ENTITY exteditor_cbEditor83Filename.label "El editor necesita archivos con nombres en formato 8+3">
+<!ENTITY exteditor_warn.value "ATENCIÓN: El editor debe estar ejecutándose en primer plano, esto quiere decir que no debe volver hasta que lo cierre.">
+<!ENTITY exteditor_cbEditHeaders.label "Editar cabeceras">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Permite editar la cabecera del mensaje">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Asunto">
+<!ENTITY exteditor_cbEditHeaderTo.label "A">
+<!ENTITY exteditor_cbEditHeaderCc.label "Cc">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Bcc">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Responder-a">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Grupos de noticias">

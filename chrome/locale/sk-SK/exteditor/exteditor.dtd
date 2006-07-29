@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Edituj v Externom Editore">
+<!ENTITY exteditor_bt.tooltiptext "Edituj správu v obľúbenom externom editore">
+<!ENTITY exteditor_editAsHtml.label "Edituj vo formáte HTML">
+<!ENTITY exteditor_editAsPlain.label "Edituj vo formáte čistého textu">
+<!ENTITY exteditor-settings.title "Nastavenia Externého Editora">
+<!ENTITY exteditor_exe.label "Meno spustiteľného súboru Externého Editora">
+<!ENTITY exteditor_editor.value "Textový Editor">
+<!ENTITY exteditor_btBrowse.label "Nájdi...">
+<!ENTITY exteditor_cbEditorUnicode.label "Tento editor vie pracovať v Unicode">
+<!ENTITY exteditor_cbEditor83Filename.label "This editor needs MSDOS 8+3 format filenames">
+<!ENTITY exteditor_warn.value "VAROVANIE: Váš editor musí bežať na popredí, t.j. nesmie povedať spúšťacej aplikácii že skončil, kým ho nezavriete.">
+<!ENTITY exteditor_cbEditHeaders.label "Edituj hlavičku mailu">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Umožňuje úpravu hlavičky mailu">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Vec">
+<!ENTITY exteditor_cbEditHeaderTo.label "Komu">
+<!ENTITY exteditor_cbEditHeaderCc.label "Kópia pre">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Skrytá kópia pre">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Adresa pre odpoveď">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Newsgroup">

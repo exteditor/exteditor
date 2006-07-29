@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Edytuj w zewnętrznym edytorze">
+<!ENTITY exteditor_bt.tooltiptext "Edytuj wiadomość w swoim preferowanym edytorze">
+<!ENTITY exteditor_editAsHtml.label "Edytuj jako HTML">
+<!ENTITY exteditor_editAsPlain.label "Edytuj jako zwykły tekst">
+<!ENTITY exteditor-settings.title "Ustawienia zewnętrznego edytora">
+<!ENTITY exteditor_exe.label "Plik wykonywalny zewnętrznego edytora">
+<!ENTITY exteditor_editor.value "Edytor tekstu">
+<!ENTITY exteditor_btBrowse.label "Przeglądaj...">
+<!ENTITY exteditor_cbEditorUnicode.label "Ten edytor obsługuje Unicode">
+<!ENTITY exteditor_cbEditor83Filename.label "ten edytor wymaga formatu MSDOS 8+3 nazw plików">
+<!ENTITY exteditor_warn.value "OSTRZEŻENIE: Twój edytor musi być uruchomiony i aktywny.">
+<!ENTITY exteditor_cbEditHeaders.label "Edytuj nagłówki">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Umożliwia edytowanie nagłówków wiadomości">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Temat">
+<!ENTITY exteditor_cbEditHeaderTo.label "Do">
+<!ENTITY exteditor_cbEditHeaderCc.label "Kopia">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Kopia ukryta">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Odpowiedz do">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Grupa dyskusyjna">

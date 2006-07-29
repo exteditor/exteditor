@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "In externem Editor bearbeiten">
+<!ENTITY exteditor_bt.tooltiptext "Nachricht mit bevorzugtem Texteditor bearbeiten">
+<!ENTITY exteditor_editAsHtml.label "Als 'HTML' bearbeiten">
+<!ENTITY exteditor_editAsPlain.label "Als 'plain text' bearbeiten">
+<!ENTITY exteditor-settings.title "Einstellung für externen Editor">
+<!ENTITY exteditor_exe.label "Programmdatei des externen Editors">
+<!ENTITY exteditor_editor.value "Text Editor">
+<!ENTITY exteditor_btBrowse.label "Durchsuchen...">
+<!ENTITY exteditor_cbEditorUnicode.label "Dieser Editor unterstützt den 'Unicode'-Zeichensatz">
+<!ENTITY exteditor_cbEditor83Filename.label "Dieser Editor unterstützt nur Dateinamen nach 8+3-Schema">
+<!ENTITY exteditor_warn.value "WARNUNG: Ihr Editor muss im Vordergrund laufen, er darf nämlich nicht vor dem Schließen verschwinden.">
+<!ENTITY exteditor_cbEditHeaders.label "Kopfzeilen bearbeiten">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Erlaubt das Bearbeiten von Kopfzeilen in Nachrichten">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Betreff">
+<!ENTITY exteditor_cbEditHeaderTo.label "An">
+<!ENTITY exteditor_cbEditHeaderCc.label "Cc">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Bcc">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Reply-To">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Newsgroup">

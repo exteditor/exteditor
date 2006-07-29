@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet
+    href="chrome://exteditor/content/exteditor.css"
+    type="text/css"?> 
+
+<!DOCTYPE overlay SYSTEM "chrome://exteditor/locale/exteditor.dtd">
+
+<overlay id="exteditorOverlay" 
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/x-javascript"
+        src="chrome://global/content/nsUserSettings.js"/>
+
+    <script type="application/x-javascript"
+        src="chrome://exteditor/content/pref.js" />
+
+    <script type="application/x-javascript"
+        src="chrome://exteditor/content/exteditor.js" />
+
+    <window id="msgcomposeWindow"
+        onload="ComposeLoad(); initExteditor();"
+        onclose="if (tryCloseExtEditor()) {return DoCommandClose(); } else { return false; }" />
+
+    <keyset id="tasksKeys">
+        <key id="key_exteditor" key="E" modifiers="accel" oncommand="launchExtEditor()"/>
+    </keyset>
+
+    <menupopup id="taskPopup">
+        <menuitem id="exteditorMenuItem" label="&exteditorMenuItem.label;" key="key_exteditor" oncommand="launchExtEditor()"/>
+    </menupopup>
+
+    <toolbarpalette id="MsgComposeToolbarPalette">
+        <toolbarbutton class="toolbarbutton-1"
+            id="exteditor_bt"
+            label="External Editor"
+            tooltiptext="&exteditor_bt.tooltiptext;"
+            type="menu-button" 
+            oncommand="launchExtEditor();">
+            <menupopup id="exteditor_html_options">
+                <menuitem id="exteditor_editAsHtml" type="radio" label="&exteditor_editAsHtml.label;" oncommand="savePrefEditHtmlAsHtml(true)"/>
+                <menuitem id="exteditor_editAsPlain" type="radio" label="&exteditor_editAsPlain.label;" oncommand="savePrefEditHtmlAsHtml(false)"/>
+            </menupopup>
+        </toolbarbutton>
+    </toolbarpalette>
+
+</overlay>

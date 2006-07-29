@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<r:RDF xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+       xmlns="http://www.mozilla.org/2004/em-rdf#">
+
+  <r:Description about="urn:mozilla:install-manifest">
+    <id>{11d1a081-b8c3-4002-af38-6ad3e899fdfa}</id>
+
+    <name>External Editor</name>
+    <version>0.7.2</version>
+    <!-- description done with the prefs.js and locale/properties files -->
+    <creator>Alexandre Feblot</creator>
+    <homepageURL>http://globs.org/</homepageURL>
+    <updateURL>http://globs.org/update.rdf</updateURL>
+    <iconURL>chrome://exteditor/content/exteditor.png</iconURL>
+
+    <targetApplication>
+      <r:Description>
+        <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
+        <minVersion>0.8</minVersion>
+        <maxVersion>1.5.0.*</maxVersion>
+      </r:Description>
+    </targetApplication>
+
+    <optionsURL>chrome://exteditor/content/settings.xul</optionsURL>
+
+    <file>
+      <r:Description about="urn:mozilla:extension:file:exteditor.jar">
+        <package>content/</package>
+        <locale>locale/en-US/exteditor/</locale>
+        <locale>locale/fr-FR/exteditor/</locale>
+        <locale>locale/it-IT/exteditor/</locale>
+        <locale>locale/es-ES/exteditor/</locale>
+        <locale>locale/sk-SK/exteditor/</locale>
+        <locale>locale/ja-JP/exteditor/</locale>
+        <locale>locale/nl-NL/exteditor/</locale>
+        <locale>locale/pl-PL/exteditor/</locale>
+      </r:Description>
+    </file>
+  </r:Description>
+</r:RDF>

@@ -1,0 +1,46 @@
+#exteditor_bt {
+    list-style-image: url("chrome://exteditor/content/generic24.png");
+}
+toolbar[iconsize="small"] #exteditor_bt {
+    list-style-image: url("chrome://exteditor/content/generic16.png");
+}
+
+
+#exteditor_bt[label="NEdit"] {
+    list-style-image: url("chrome://exteditor/content/nedit24.png");
+}
+toolbar[iconsize="small"] #exteditor_bt[label="NEdit"] {
+    list-style-image: url("chrome://exteditor/content/nedit16.png");
+}
+
+
+#exteditor_bt[label="Emacs"] {
+    list-style-image: url("chrome://exteditor/content/emacs24.png");
+}
+toolbar[iconsize="small"] #exteditor_bt[label="Emacs"] {
+    list-style-image: url("chrome://exteditor/content/emacs16.png");
+}
+
+
+#exteditor_bt[label="Gvim"] {
+    list-style-image: url("chrome://exteditor/content/vim24.png");
+}
+toolbar[iconsize="small"] #exteditor_bt[label="Gvim"] {
+    list-style-image: url("chrome://exteditor/content/vim16.png");
+}
+
+
+#exteditor_bt[label="Vim"] {
+    list-style-image: url("chrome://exteditor/content/vim24.png");
+}
+toolbar[iconsize="small"] #exteditor_bt[label="Vim"] {
+    list-style-image: url("chrome://exteditor/content/vim16.png");
+}
+
+
+#exteditor_bt[label="Vi"] {
+    list-style-image: url("chrome://exteditor/content/vim24.png");
+}
+toolbar[iconsize="small"] #exteditor_bt[label="Vi"] {
+    list-style-image: url("chrome://exteditor/content/vim16.png");
+}

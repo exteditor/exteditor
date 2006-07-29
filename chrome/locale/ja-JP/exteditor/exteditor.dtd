@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "外部エディタで編集">
+<!ENTITY exteditor_bt.tooltiptext "好きなテキストエディタでメッセージを編集">
+<!ENTITY exteditor_editAsHtml.label "HTML として編集">
+<!ENTITY exteditor_editAsPlain.label "平文として編集">
+<!ENTITY exteditor-settings.title "外部エディタの設定">
+<!ENTITY exteditor_exe.label "外部エディタの実行ファイル">
+<!ENTITY exteditor_editor.value "テキストエディタ">
+<!ENTITY exteditor_btBrowse.label "選択">
+<!ENTITY exteditor_cbEditorUnicode.label "このエディタはユニコードを扱える">
+<!ENTITY exteditor_cbEditor83Filename.label "このエディタは MSDOS の 8+3 形式のファイル名を使う必要がある">
+<!ENTITY exteditor_warn.value "警告: エディタはフォアグラウンドで実行されなければなりません。つまり、閉じる前に戻ってはならないということです。">
+<!ENTITY exteditor_cbEditHeaders.label "ヘッダの編集">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "メッセージヘッダの編集を許可">
+<!ENTITY exteditor_cbEditHeaderSubject.label "題名">
+<!ENTITY exteditor_cbEditHeaderTo.label "To">
+<!ENTITY exteditor_cbEditHeaderCc.label "Cc">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Bcc">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Reply-To">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "ニュースグループ">

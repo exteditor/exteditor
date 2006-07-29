@@ -1,0 +1,118 @@
+<?xml version="1.0"?> 
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://exteditor/locale/exteditor.dtd">
+
+<dialog    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:exteditor="http://forums.mozillazine.org/rdf/exteditor#"
+    title="&exteditor-settings.title;"
+    id="exteditor-settings"
+    orient="vertical"
+    flex="0"
+    onload="onLoad();"
+    ondialogaccept="onOK();return true;"
+    buttons="accept,cancel"
+    persist="screenX screenY">
+
+    <script type="application/x-javascript"
+        src="chrome://global/content/nsUserSettings.js"/>
+
+    <script type="application/x-javascript"
+        src="chrome://exteditor/content/pref.js" />
+
+    <script type="application/x-javascript"
+        src="chrome://exteditor/content/settings.js" />
+
+    <broadcaster id="exteditor_brcstEditHeaders"/>
+
+
+
+    <groupbox><caption id="exteditor_exe" label="&exteditor_exe.label;"/>
+        <vbox align="stretch">
+            <hbox align="center">
+                <label id="exteditor_editor" value="&exteditor_editor.value;"/>
+                <textbox    id="exteditor_leEditor"
+                            flex="1"
+                            preftype="string"
+                            prefattribute="value"
+                            prefstring="exteditor.default.editor"/>
+                <button id="exteditor_btBrowse" label="&exteditor_btBrowse.label;" oncommand="selectEditor();"/>
+            </hbox>
+            <checkbox   id="exteditor_cbEditorUnicode"
+                        label="&exteditor_cbEditorUnicode.label;"
+                        preftype="bool" 
+                        prefattribute="checked"
+                        prefstring="exteditor.editor.unicode"/>
+            <checkbox   id="exteditor_cbEditor83Filename"
+                        label="&exteditor_cbEditor83Filename.label;"
+                        preftype="bool" 
+                        prefattribute="checked"
+                        prefstring="exteditor.editor.83filename"/>
+            <hbox align="center">
+                <description id="exteditor_warn" style="width: 300px">&exteditor_warn.value;</description>
+                <spacer flex="1"/>
+            </hbox>
+        </vbox>
+    </groupbox>
+
+    <groupbox >
+        <caption>
+            <checkbox   id="exteditor_cbEditHeaders"
+                        label="&exteditor_cbEditHeaders.label;"
+                        tooltiptext="&exteditor_cbEditHeaders.tooltiptext;"
+                        oncommand="activate('exteditor_cbEditHeaders', 'exteditor_brcstEditHeaders')"
+                        preftype="bool" 
+                        prefattribute="checked"
+                        prefstring="exteditor.headers.edit"/>
+        </caption>
+        <grid flex="1">
+            <columns>
+                <column flex="1"/>
+                <column flex="1"/>
+                <column flex="1"/>
+            </columns>
+            <rows>
+                <row align="center">
+                    <checkbox   id="exteditor_cbEditHeaderSubject"
+                                label="&exteditor_cbEditHeaderSubject.label;"
+                                observes="exteditor_brcstEditHeaders"
+                                preftype="bool" 
+                                prefattribute="checked"
+                                prefstring="exteditor.headers.edit.subject"/>
+                    <checkbox   id="exteditor_cbEditHeaderTo"
+                                label="&exteditor_cbEditHeaderTo.label;"
+                                observes="exteditor_brcstEditHeaders"
+                                preftype="bool" 
+                                prefattribute="checked"
+                                prefstring="exteditor.headers.edit.to"/>
+                    <checkbox   id="exteditor_cbEditHeaderCc"
+                                label="&exteditor_cbEditHeaderCc.label;"
+                                observes="exteditor_brcstEditHeaders"
+                                preftype="bool" 
+                                prefattribute="checked"
+                                prefstring="exteditor.headers.edit.cc"/>
+                </row>
+                <row align="center">
+                    <checkbox   id="exteditor_cbEditHeaderBcc"
+                                label="&exteditor_cbEditHeaderBcc.label;"
+                                observes="exteditor_brcstEditHeaders"
+                                preftype="bool" 
+                                prefattribute="checked"
+                                prefstring="exteditor.headers.edit.bcc"/>
+                    <checkbox   id="exteditor_cbEditHeaderReplyTo"
+                                label="&exteditor_cbEditHeaderReplyTo.label;"
+                                observes="exteditor_brcstEditHeaders"
+                                preftype="bool" 
+                                prefattribute="checked"
+                                prefstring="exteditor.headers.edit.replyto"/>
+                    <checkbox   id="exteditor_cbEditHeaderNewsgroup"
+                                label="&exteditor_cbEditHeaderNewsgroup.label;"
+                                observes="exteditor_brcstEditHeaders"
+                                preftype="bool" 
+                                prefattribute="checked"
+                                prefstring="exteditor.headers.edit.newsgroup"/>
+                </row>
+            </rows>
+        </grid>
+    </groupbox>
+</dialog>

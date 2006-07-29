@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Bewerken in externe tekstverwerker">
+<!ENTITY exteditor_bt.tooltiptext "Bericht bewerken met uw favoriete tekstverwerker">
+<!ENTITY exteditor_editAsHtml.label "Bewerken als HTML">
+<!ENTITY exteditor_editAsPlain.label "Bewerken als platte tekst">
+<!ENTITY exteditor-settings.title "Instellingen voor externe tekstverwerker">
+<!ENTITY exteditor_exe.label "Pad naar externe tekstverwerker">
+<!ENTITY exteditor_editor.value "Tekstverwerker">
+<!ENTITY exteditor_btBrowse.label "Bladeren...">
+<!ENTITY exteditor_cbEditorUnicode.label "Deze tekstverwerker kan met Unicode omgaan">
+<!ENTITY exteditor_cbEditor83Filename.label "Deze tekstverwerker vereist MSDOS 8+3 bestandsnamen">
+<!ENTITY exteditor_warn.value "WAARSCHUWING: Uw tekstverwerker moet op de voorgrond draaien, dus eerst afsluiten.">
+<!ENTITY exteditor_cbEditHeaders.label "Headers bewerken">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Staat het bewerken van berichtheaders toe">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Onderwerp">
+<!ENTITY exteditor_cbEditHeaderTo.label "Aan">
+<!ENTITY exteditor_cbEditHeaderCc.label "Cc">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Bcc">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Reply-To">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Nieuwsgroep">

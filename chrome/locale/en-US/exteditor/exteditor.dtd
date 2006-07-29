@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Edit in External Editor">
+<!ENTITY exteditor_bt.tooltiptext "Edit message with your prefered text editor">
+<!ENTITY exteditor_editAsHtml.label "Edit as HTML">
+<!ENTITY exteditor_editAsPlain.label "Edit as plain text">
+<!ENTITY exteditor-settings.title "External Editor Settings">
+<!ENTITY exteditor_exe.label "External Editor executable">
+<!ENTITY exteditor_editor.value "Text Editor">
+<!ENTITY exteditor_btBrowse.label "Browse...">
+<!ENTITY exteditor_cbEditorUnicode.label "This editor handles Unicode">
+<!ENTITY exteditor_cbEditor83Filename.label "This editor needs MSDOS 8+3 format filenames">
+<!ENTITY exteditor_warn.value "WARNING: Your editor must run in foreground, i.e., it must not return before you close it.">
+<!ENTITY exteditor_cbEditHeaders.label "Edit headers">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Allows editing of message headers">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Subject">
+<!ENTITY exteditor_cbEditHeaderTo.label "To">
+<!ENTITY exteditor_cbEditHeaderCc.label "Cc">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Bcc">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Reply-To">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Newsgroup">
