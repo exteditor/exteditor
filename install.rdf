@@ -7,7 +7,7 @@
     <id>{11d1a081-b8c3-4002-af38-6ad3e899fdfa}</id>
 
     <name>External Editor</name>
-    <version>0.7.2</version>
+    <version>0.7.3</version>
     <!-- description done with the prefs.js and locale/properties files -->
     <creator>Alexandre Feblot</creator>
     <homepageURL>http://globs.org/</homepageURL>

@@ -251,11 +251,21 @@ function updateEditor()
     }
 
     setEditorDisabled(false);
-    GetCurrentEditor().rebuildDocumentFromSource("");   // is there a Clear() method somewhere ?
+
+    var editor = GetCurrentEditor();
+
     if (isEditAsHtml()) {
-        GetCurrentEditor().insertHTML(messageText);
+        editor.rebuildDocumentFromSource("");   // is there a Clear() method somewhere ?
+        editor.insertHTML(messageText);
     } else {
-        GetCurrentEditor().insertText(messageText);
+        // Don't use rebuildDocumentFromSource() here: it turns the editor in a
+        // html mode in  which multiple spaces disapear.
+        var wholeDocRange = editor.document.createRange();
+        var rootNode = editor.rootElement.QueryInterface(Components.interfaces.nsIDOMNode);
+        wholeDocRange.selectNodeContents(rootNode);
+        editor.selection.addRange(wholeDocRange);
+        editor.selection.deleteFromDocument();
+        editor.insertText(messageText);
     }
 }
 
