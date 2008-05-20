@@ -265,7 +265,7 @@ function updateEditor()
         wholeDocRange.selectNodeContents(rootNode);
         editor.selection.addRange(wholeDocRange);
         editor.selection.deleteFromDocument();
-        editor.insertText(messageText);
+        editor.insertTextWithQuotations(messageText);
     }
 }
 
