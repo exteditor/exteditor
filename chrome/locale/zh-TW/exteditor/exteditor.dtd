@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "使用外部編輯器進行編輯">
+<!ENTITY exteditor_bt.tooltiptext "使用預設的文字編輯器來編輯消息">
+<!ENTITY exteditor_editAsHtml.label "以HTML格式進行編輯">
+<!ENTITY exteditor_editAsPlain.label "以純文字格式進行編輯">
+<!ENTITY exteditor-settings.title "設定外部編輯器">
+<!ENTITY exteditor_exe.label "外部編輯器可執行檔">
+<!ENTITY exteditor_editor.value "文字編輯器">
+<!ENTITY exteditor_btBrowse.label "瀏覽...">
+<!ENTITY exteditor_cbEditorUnicode.label "使用該編輯器處理萬國碼">
+<!ENTITY exteditor_cbEditor83Filename.label "該編輯器只能處理MSDOS 8+3格式的檔案名">
+<!ENTITY exteditor_warn.value "WARNING: Your editor must run in foreground, i.e., it must not return before you close it.">
+<!ENTITY exteditor_cbEditHeaders.label "編輯標題">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "允許編輯文件的標題">
+<!ENTITY exteditor_cbEditHeaderSubject.label "主題">
+<!ENTITY exteditor_cbEditHeaderTo.label "收件人">
+<!ENTITY exteditor_cbEditHeaderCc.label "副件">
+<!ENTITY exteditor_cbEditHeaderBcc.label "秘密副件">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "回覆至">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "新聞群組">

@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "在外部编辑器编辑">
+<!ENTITY exteditor_bt.tooltiptext "用首选文本编辑器编辑消息">
+<!ENTITY exteditor_editAsHtml.label "以 HTML 格式编辑">
+<!ENTITY exteditor_editAsPlain.label "以纯文本格式编辑">
+<!ENTITY exteditor-settings.title "外部编辑器设置">
+<!ENTITY exteditor_exe.label "外部编辑器可执行文件">
+<!ENTITY exteditor_editor.value "文本编辑器">
+<!ENTITY exteditor_btBrowse.label "浏览...">
+<!ENTITY exteditor_cbEditorUnicode.label "该编辑器处理 Unicode">
+<!ENTITY exteditor_cbEditor83Filename.label "该编辑器只能处理 MSDOS 8+3 格式的文件名">
+<!ENTITY exteditor_warn.value "警告: 您的编辑器必须在前台允许，即，在您关闭之前它无法返回。">
+<!ENTITY exteditor_cbEditHeaders.label "编辑标题">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "允许编辑消息标题">
+<!ENTITY exteditor_cbEditHeaderSubject.label "标题">
+<!ENTITY exteditor_cbEditHeaderTo.label "收件人">
+<!ENTITY exteditor_cbEditHeaderCc.label "抄送">
+<!ENTITY exteditor_cbEditHeaderBcc.label "密件抄送">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "回复至">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "新闻组">

@@ -36,6 +36,13 @@
         <locale>locale/ja-JP/exteditor/</locale>
         <locale>locale/nl-NL/exteditor/</locale>
         <locale>locale/pl-PL/exteditor/</locale>
+        <locale>locale/zh-TW/exteditor/</locale>
+        <locale>locale/zh-CN/exteditor/</locale>
+        <locale>locale/fi-FI/exteditor/</locale>
+        <locale>locale/de-DE/exteditor/</locale>
+        <locale>locale/ru-RU/exteditor/</locale>
+        <locale>locale/ar/exteditor/</locale>
+        <locale>locale/be-BY/exteditor/</locale>
       </r:Description>
     </file>
   </r:Description>

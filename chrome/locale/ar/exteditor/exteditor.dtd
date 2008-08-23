@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "التحرير في برنامج تحرير خارجي">
+<!ENTITY exteditor_bt.tooltiptext "تحرير الرسائل بواسطة برنامجك المفضل">
+<!ENTITY exteditor_editAsHtml.label "التحرير ك أتش تي أم أل">
+<!ENTITY exteditor_editAsPlain.label "التحرير كنص عادي">
+<!ENTITY exteditor-settings.title "اعدادات برنامج التحيري الخارجي">
+<!ENTITY exteditor_exe.label "ملف تفعيل برنامج التحرير الخارجي">
+<!ENTITY exteditor_editor.value "محرر النصوص">
+<!ENTITY exteditor_btBrowse.label "تصفح ...">
+<!ENTITY exteditor_cbEditorUnicode.label "هذا البرنامج يدعم يوني كود">
+<!ENTITY exteditor_cbEditor83Filename.label "برنامج التحرير هذا يحتاج الى ملفات ذات تسمية أة أس دوس (8+3)">
+<!ENTITY exteditor_warn.value "تحذير : برنامج التحرير يجب أن يعمل في الواجهة.">
+<!ENTITY exteditor_cbEditHeaders.label "تحرير الترويسة">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "يسمح لتحرير رؤوس الرسائل">
+<!ENTITY exteditor_cbEditHeaderSubject.label "الموضوع">
+<!ENTITY exteditor_cbEditHeaderTo.label "الى">
+<!ENTITY exteditor_cbEditHeaderCc.label "نسخة">
+<!ENTITY exteditor_cbEditHeaderBcc.label "نسخة مخفية">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "عنوان الرد">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "مجموعة أخبارية">

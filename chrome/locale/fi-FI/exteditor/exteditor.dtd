@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Muokkaa ulkoisessa editorissa">
+<!ENTITY exteditor_bt.tooltiptext "Muokkaa viestiäsi suosikkitekstieditorissasi">
+<!ENTITY exteditor_editAsHtml.label "Muokkaa HTML:nä">
+<!ENTITY exteditor_editAsPlain.label "Muokkaa normaalina tekstinä">
+<!ENTITY exteditor-settings.title "Ulkoisen editorin asetukset">
+<!ENTITY exteditor_exe.label "Ulkoisen editorin ohjelmatiedosto">
+<!ENTITY exteditor_editor.value "Tekstieditori">
+<!ENTITY exteditor_btBrowse.label "Selaa...">
+<!ENTITY exteditor_cbEditorUnicode.label "Editori osaa käsitellä Unicodea">
+<!ENTITY exteditor_cbEditor83Filename.label "Editori tarvitsee MSDOS 8+3-tyypin tiedostonimet">
+<!ENTITY exteditor_warn.value "VAROITUS: Editorisi täytyy ajaa &quot;foreground&quot;-tilassa, eli se ei saa palautua ennen kuin suljet sen.">
+<!ENTITY exteditor_cbEditHeaders.label "Muokkaa otsakkeita">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Salli viestiotsakkeiden muokkaus">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Aihe">
+<!ENTITY exteditor_cbEditHeaderTo.label "Vastaanottaja">
+<!ENTITY exteditor_cbEditHeaderCc.label "Kopio">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Piilokopio">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Vastausosoite">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Keskusteluryhmä">

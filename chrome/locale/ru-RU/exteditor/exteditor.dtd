@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Редактировать во внешнем редакторе">
+<!ENTITY exteditor_bt.tooltiptext "Редактировать сообщение в любом редакторе">
+<!ENTITY exteditor_editAsHtml.label "Редактировать как HTML">
+<!ENTITY exteditor_editAsPlain.label "Редактировать как простой текст">
+<!ENTITY exteditor-settings.title "Настройки внешнего редактора">
+<!ENTITY exteditor_exe.label "Программа внешнего редактора">
+<!ENTITY exteditor_editor.value "Текстовый редактор">
+<!ENTITY exteditor_btBrowse.label "Найти..">
+<!ENTITY exteditor_cbEditorUnicode.label "Редактор поддерживает Уникод">
+<!ENTITY exteditor_cbEditor83Filename.label "Редактор требует имена файлов в формате MSDOS 8+3">
+<!ENTITY exteditor_warn.value "ПРЕДУПРЕЖДЕНИЕ: редактор должен работать не в фоновом режиме, т.е не должен закрываться прежде чем Вы его закроете">
+<!ENTITY exteditor_cbEditHeaders.label "Редактировать заголовок">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Разрешить редактировать заголовки">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Тема">
+<!ENTITY exteditor_cbEditHeaderTo.label "Кому">
+<!ENTITY exteditor_cbEditHeaderCc.label "Копия">
+<!ENTITY exteditor_cbEditHeaderBcc.label "КС">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Ответить">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Новостная группа">
