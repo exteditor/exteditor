@@ -193,64 +193,73 @@ function updateEditor()
 {
     var content = extEditorReadFile(file, prefEditorUnicode);
     extEditorDeleteFile(file);
+    
+    if (content==null) {
+        setEditorDisabled(false);
+        return;
+    }
+    
+    try {
+        var list = content.split(headersEnd);
+        var messageText;
 
-    var list = content.split(headersEnd);
-    var messageText;
-
-    if (prefEditHeaders[exteditor_GLOBAL]) {
-        // if headers edition is activated
-        if (list.length==1) {
-            messageText = content;
-        } else {
-            messageText = list[1];
-            var headersLines = list[0].split(newLine);
-            var headerHash = new Array;
-            var headerType = "unknown"; // should never be used
-            for (var i = 0; i <headersLines.length; i++) {
-                var whichHeader = headersLines[i].split(":");
-                if (whichHeader.length>=2) {
-                    headerType = whichHeader.shift().replace(/\s+/g, "").toLowerCase();
-                    // if the subject contains ":", the array has more than 2 members...
-                    var headerContent = whichHeader.join(":").replace(/^\s+/, "");
-                    if (headerHash[headerType] === undefined) {
-                        headerHash[headerType] = headerContent;
+        if (prefEditHeaders[exteditor_GLOBAL]) {
+            // if headers edition is activated
+            if (list.length==1) {
+                messageText = content;
+            } else {
+                messageText = list[1];
+                var headersLines = list[0].split(newLine);
+                var headerHash = new Array;
+                var headerType = "unknown"; // should never be used
+                for (var i = 0; i <headersLines.length; i++) {
+                    var whichHeader = headersLines[i].split(":");
+                    if (whichHeader.length>=2) {
+                        headerType = whichHeader.shift().replace(/\s+/g, "").toLowerCase();
+                        // if the subject contains ":", the array has more than 2 members...
+                        var headerContent = whichHeader.join(":").replace(/^\s+/, "");
+                        if (headerHash[headerType] === undefined) {
+                            headerHash[headerType] = headerContent;
+                        } else {
+                            headerHash[headerType] += ","+headerContent;
+                        }
                     } else {
-                        headerHash[headerType] += ","+headerContent;
-                    }
-                } else {
-                    // if not only spaces or empty line
-                    if (/\w/.test(headersLines[i])) {
-                        headerHash[headerType] += ","+headersLines[i];
+                        // if not only spaces or empty line
+                        if (/\w/.test(headersLines[i])) {
+                            headerHash[headerType] += ","+headersLines[i];
+                        }
                     }
                 }
+
+                var subject = headerHash[exteditor_SUBJECT.toLowerCase()];
+                if (subject !== undefined) {
+                    document.getElementById('msgSubject').value = subject;
+                }
+
+                var msgCompFields = gMsgCompose.compFields;
+                Recipients2CompFields(msgCompFields);
+
+                if (prefEditHeaders[exteditor_TO])        msgCompFields.to         = headerHash[exteditor_TO.toLowerCase()];
+                if (prefEditHeaders[exteditor_CC])        msgCompFields.cc         = headerHash[exteditor_CC.toLowerCase()];
+                if (prefEditHeaders[exteditor_BCC])       msgCompFields.bcc        = headerHash[exteditor_BCC.toLowerCase()];
+                if (prefEditHeaders[exteditor_REPLY_TO])  msgCompFields.replyTo    = headerHash[exteditor_REPLY_TO.toLowerCase()];
+                if (prefEditHeaders[exteditor_NEWSGROUP]) msgCompFields.newsgroups = headerHash[exteditor_NEWSGROUP.toLowerCase()];
+
+                CompFields2Recipients(msgCompFields);
             }
-
-            var subject = headerHash[exteditor_SUBJECT.toLowerCase()];
-            if (subject !== undefined) {
-                document.getElementById('msgSubject').value = subject;
-            }
-
-            var msgCompFields = gMsgCompose.compFields;
-            Recipients2CompFields(msgCompFields);
-
-            if (prefEditHeaders[exteditor_TO])        msgCompFields.to         = headerHash[exteditor_TO.toLowerCase()];
-            if (prefEditHeaders[exteditor_CC])        msgCompFields.cc         = headerHash[exteditor_CC.toLowerCase()];
-            if (prefEditHeaders[exteditor_BCC])       msgCompFields.bcc        = headerHash[exteditor_BCC.toLowerCase()];
-            if (prefEditHeaders[exteditor_REPLY_TO])  msgCompFields.replyTo    = headerHash[exteditor_REPLY_TO.toLowerCase()];
-            if (prefEditHeaders[exteditor_NEWSGROUP]) msgCompFields.newsgroups = headerHash[exteditor_NEWSGROUP.toLowerCase()];
-
-            CompFields2Recipients(msgCompFields);
+        } else {
+            // No headers edition here
+            messageText = content;
         }
-    } else {
-        // No headers edition here
-        messageText = content;
+        // Replace \r\n by \n
+        if (osType=="win") {
+            messageText = messageText.replace(/\r\n/g, "\n");
+        }
+    } catch(e) {
+         // A message could be displayed her, but I don't wan't to bother with localizations...
+    } finally {
+        setEditorDisabled(false);
     }
-    // Replace \r\n by \n
-    if (osType=="win") {
-        messageText = messageText.replace(/\r\n/g, "\n");
-    }
-
-    setEditorDisabled(false);
 
     var editor = GetCurrentEditor();
 
