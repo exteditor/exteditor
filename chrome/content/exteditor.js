@@ -53,42 +53,40 @@ exteditorObserver.prototype = {
 }
 
 //-----------------------------------------------------------------------------
+// Runnable to be executed by a thread
+function exteditorRunnable(func) {
+  this.run = func;
+}
+exteditorRunnable.prototype = {
+  QueryInterface : function(iid) {
+    if (iid.equals(Components.interfaces.nsIRunnable) ||
+        iid.equals(Components.interfaces.nsISupports)) {
+      return this;
+    }
+    throw Components.results.NS_ERROR_NO_INTERFACE;
+  }
+};
+
+
+
+//-----------------------------------------------------------------------------
 // separate thread manager to launch a blocking editor
 function exteditorThread() {
-    this.nsIThread = Components.classes["@mozilla.org/thread;1"].getService(Components.interfaces.nsIThread);
-    this.Thread = new Components.Constructor("@mozilla.org/thread;1", "nsIThread", "init");
-    this.thread;
-    this.messages = new Array;
+    this.ThreadManager = Components.classes["@mozilla.org/thread-manager;1"].getService();
+    this.thread = this.ThreadManager.newThread(0);
     this.isRunning = false;
-    this.checkInterval; // interval
-    this.guithread = this.nsIThread.currentThread;
-    this.endOfThreadRunable;    // runable
 }
 exteditorThread.prototype = {
-    launch: function(runable, endOfThreadRunable) {
+    launch: function(threadFnct) {
         this.isRunning = true;
-        this.endOfThreadRunable = endOfThreadRunable;
-        this.thread = new this.Thread(runable, 0, this.nsIThread.PRIORITY_NORMAL, this.nsIThread.SCOPE_GLOBAL, this.nsIThread.STATE_JOINABLE);
-        this.checkInterval = setInterval("threadPrivateCheck()", 500);
+        this.thread.dispatch(new exteditorRunnable(threadFnct), this.thread.DISPATCH_NORMAL);
     },
     isInThread: function() {
-        return (this.nsIThread.currentThread!=this.guithread);
+        return ( ! this.ThreadManager.isMainThread);
     },
-    queueMessage: function(msg) {
-        this.messages.push(msg);
-    },
-    displayMessages: function() {
-        while (this.messages.length>0) {
-            alert(this.messages.shift());
-        }
+    alert: function(msg) {
+        this.ThreadManager.mainThread.dispatch(new exteditorRunnable(alert(msg)), ThreadManager.mainThread.DISPATCH_NORMAL);
     }
-}
-
-function threadPrivateCheck() {   // sorry, setInterval doesn't accept object methods
-    thread.displayMessages();
-    if (thread.isRunning) return;
-    clearInterval(thread.checkInterval);
-    thread.endOfThreadRunable.run();
 }
 
 //-----------------------------------------------------------------------------
@@ -175,9 +173,7 @@ function launchExtEditor() {
     file = tmpFilename(subject, prefEditor83Filename);
     extEditorWriteFile(content, prefEditorUnicode, file);
 
-    var runable = {run : runEditor, 0 : 0};
-    var endOfThreadRunable = {run : updateEditor, 0 : 0};
-    thread.launch(runable, endOfThreadRunable);
+    thread.launch(runEditor);
 }
 
 //-----------------------------------------------------------------------------
@@ -185,6 +181,10 @@ function runEditor()
 {
     var params = new Array(file);
     extEditorRunProgram(prefNotifierExe, params); // blocking call
+
+    var ThreadManager = Components.classes["@mozilla.org/thread-manager;1"].getService();
+    ThreadManager.mainThread.dispatch(new exteditorRunnable(updateEditor), ThreadManager.mainThread.DISPATCH_NORMAL);
+
     thread.isRunning = false;
 }
 
@@ -273,7 +273,7 @@ function updateEditor()
 function extEditorError(msg) {
     msg = "ExtEditor: " + msg;
     if (thread.isInThread()) {
-        thread.queueMessage(msg);
+        thread.alert(msg);
     } else {
         alert(msg);
     }
