@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Editeaza in Editorul extern">
+<!ENTITY exteditor_bt.tooltiptext "Editeaza mesajul cu editorul de text preferat">
+<!ENTITY exteditor_editAsHtml.label "Editeaza ca HTML">
+<!ENTITY exteditor_editAsPlain.label "Editeaza ca text simplu">
+<!ENTITY exteditor-settings.title "Setarile Editorului extern">
+<!ENTITY exteditor_exe.label "Fisierul executabil al Editorului extern">
+<!ENTITY exteditor_editor.value "Editor de text">
+<!ENTITY exteditor_btBrowse.label "Rasfoire (Cautare)">
+<!ENTITY exteditor_cbEditorUnicode.label "Acest editor suporta Unicode">
+<!ENTITY exteditor_cbEditor83Filename.label "Acest editor necesita nume de fisiere in format MSDOS 8+3">
+<!ENTITY exteditor_warn.value "ATENTIE: Editorul vostru trebuie sa lucreze in prim-plan, de ex.: ???????????????????">
+<!ENTITY exteditor_cbEditHeaders.label "Editeaza antete">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Permite editarea antetelor mesajelor">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Subiect">
+<!ENTITY exteditor_cbEditHeaderTo.label "Catre">
+<!ENTITY exteditor_cbEditHeaderCc.label "Cc (destinatar principal)">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Bcc (destinatar secundar)">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Raspunde la">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Grup de stiri">

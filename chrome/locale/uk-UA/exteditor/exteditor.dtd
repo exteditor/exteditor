@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Редагування у Зовнішньому редакторі">
+<!ENTITY exteditor_bt.tooltiptext "Edit message with your prefered text editor">
+<!ENTITY exteditor_editAsHtml.label "Редагувати як HTML">
+<!ENTITY exteditor_editAsPlain.label "Редагувати як звичайний текст">
+<!ENTITY exteditor-settings.title "Налаштування Зовнішнього редактора">
+<!ENTITY exteditor_exe.label "Програма зовнішнього редактора">
+<!ENTITY exteditor_editor.value "Текстовий редактор">
+<!ENTITY exteditor_btBrowse.label "Обрати...">
+<!ENTITY exteditor_cbEditorUnicode.label "Цей редактор має підтпримку Юнікоду">
+<!ENTITY exteditor_cbEditor83Filename.label "Цей редактор потребує імен у форматі MSDOS 8+3">
+<!ENTITY exteditor_warn.value "WARNING: Your editor must run in foreground, i.e., it must not return before you close it.">
+<!ENTITY exteditor_cbEditHeaders.label "Edit headers">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Allows editing of message headers">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Тема">
+<!ENTITY exteditor_cbEditHeaderTo.label "Кому">
+<!ENTITY exteditor_cbEditHeaderCc.label "Копія">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Прихована копія">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Відправник">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Групи новин">

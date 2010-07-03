@@ -1,0 +1,40 @@
+
+overlay	chrome://messenger/content/messengercompose/messengercompose.xul	chrome://exteditor/content/exteditor.xul
+overlay	chrome://global/content/customizeToolbar.xul	chrome://exteditor/content/exteditor.xul
+content	exteditor	jar:chrome/exteditor.jar!/content/
+
+locale	exteditor	en-US	jar:chrome/exteditor.jar!/locale/en-US/exteditor/
+
+locale	exteditor	fr-FR	jar:chrome/exteditor.jar!/locale/fr-FR/exteditor/
+
+locale	exteditor	it-IT	jar:chrome/exteditor.jar!/locale/it-IT/exteditor/
+
+locale	exteditor	es-ES	jar:chrome/exteditor.jar!/locale/es-ES/exteditor/
+
+locale	exteditor	sk-SK	jar:chrome/exteditor.jar!/locale/sk-SK/exteditor/
+
+locale	exteditor	ja-JP	jar:chrome/exteditor.jar!/locale/ja-JP/exteditor/
+
+locale	exteditor	nl-NL	jar:chrome/exteditor.jar!/locale/nl-NL/exteditor/
+
+locale	exteditor	pl-PL	jar:chrome/exteditor.jar!/locale/pl-PL/exteditor/
+
+locale	exteditor	zh-TW	jar:chrome/exteditor.jar!/locale/zh-TW/exteditor/
+
+locale	exteditor	zh-CN	jar:chrome/exteditor.jar!/locale/zh-CN/exteditor/
+
+locale	exteditor	fi-FI	jar:chrome/exteditor.jar!/locale/fi-FI/exteditor/
+
+locale	exteditor	de-DE	jar:chrome/exteditor.jar!/locale/de-DE/exteditor/
+
+locale	exteditor	ru-RU	jar:chrome/exteditor.jar!/locale/ru-RU/exteditor/
+
+locale	exteditor	ar	    jar:chrome/exteditor.jar!/locale/ar/exteditor/
+
+locale	exteditor	be-BY	jar:chrome/exteditor.jar!/locale/be-BY/exteditor/
+
+locale	exteditor	uk-UA	jar:chrome/exteditor.jar!/locale/uk-UA/exteditor/
+
+locale	exteditor	ro-RO	jar:chrome/exteditor.jar!/locale/ro-RO/exteditor/
+
+locale	exteditor	ca-AD	jar:chrome/exteditor.jar!/locale/ca-AD/exteditor/

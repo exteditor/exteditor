@@ -8,7 +8,7 @@
 
     <name>External Editor</name>
     <type>2</type>
-    <version>0.8.0</version>
+    <version>0.9.0</version>
     <!-- description done with the prefs.js and locale/properties files -->
     <creator>Alexandre Feblot</creator>
     <homepageURL>http://globs.org/</homepageURL>
@@ -19,31 +19,11 @@
       <r:Description>
         <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
         <minVersion>3.0b1pre</minVersion>
-        <maxVersion>3.0.*</maxVersion>
+        <maxVersion>3.1.*</maxVersion>
       </r:Description>
     </targetApplication>
 
     <optionsURL>chrome://exteditor/content/settings.xul</optionsURL>
 
-    <file>
-      <r:Description about="urn:mozilla:extension:file:exteditor.jar">
-        <package>content/</package>
-        <locale>locale/en-US/exteditor/</locale>
-        <locale>locale/fr-FR/exteditor/</locale>
-        <locale>locale/it-IT/exteditor/</locale>
-        <locale>locale/es-ES/exteditor/</locale>
-        <locale>locale/sk-SK/exteditor/</locale>
-        <locale>locale/ja-JP/exteditor/</locale>
-        <locale>locale/nl-NL/exteditor/</locale>
-        <locale>locale/pl-PL/exteditor/</locale>
-        <locale>locale/zh-TW/exteditor/</locale>
-        <locale>locale/zh-CN/exteditor/</locale>
-        <locale>locale/fi-FI/exteditor/</locale>
-        <locale>locale/de-DE/exteditor/</locale>
-        <locale>locale/ru-RU/exteditor/</locale>
-        <locale>locale/ar/exteditor/</locale>
-        <locale>locale/be-BY/exteditor/</locale>
-      </r:Description>
-    </file>
   </r:Description>
 </r:RDF>

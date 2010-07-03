@@ -1,0 +1,19 @@
+<!ENTITY exteditorMenuItem.label "Edita en Editor Extern">
+<!ENTITY exteditor_bt.tooltiptext "Edita missatge amb el teu editor de text preferit">
+<!ENTITY exteditor_editAsHtml.label "Edita com a HTML">
+<!ENTITY exteditor_editAsPlain.label "Edita com a text pla">
+<!ENTITY exteditor-settings.title "Configuració d'Editor Extern">
+<!ENTITY exteditor_exe.label "Editor extern executable">
+<!ENTITY exteditor_editor.value "Editor de text">
+<!ENTITY exteditor_btBrowse.label "Navega...">
+<!ENTITY exteditor_cbEditorUnicode.label "Aquest editor accepta Unicode">
+<!ENTITY exteditor_cbEditor83Filename.label "Aquest editor necessita nom d'arxius en el format MSDOS 8+3">
+<!ENTITY exteditor_warn.value "AVÍS: El teu editor ha de funcionar en segon pla, per exemple, no ha de tornar abans de tancar-lo.">
+<!ENTITY exteditor_cbEditHeaders.label "Edita capçaleres">
+<!ENTITY exteditor_cbEditHeaders.tooltiptext "Permet editar capçaleres dels missatges">
+<!ENTITY exteditor_cbEditHeaderSubject.label "Assumpte">
+<!ENTITY exteditor_cbEditHeaderTo.label "Per a">
+<!ENTITY exteditor_cbEditHeaderCc.label "Altres Destinataris/es">
+<!ENTITY exteditor_cbEditHeaderBcc.label "Altres Destinataris/es Ocults">
+<!ENTITY exteditor_cbEditHeaderReplyTo.label "Respon a">
+<!ENTITY exteditor_cbEditHeaderNewsgroup.label "Grup de Notícies">
