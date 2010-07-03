@@ -234,6 +234,7 @@ function updateEditor()
                 var subject = headerHash[exteditor_SUBJECT.toLowerCase()];
                 if (subject !== undefined) {
                     document.getElementById('msgSubject').value = subject;
+                    gMsgCompose.compFields.subject = subject;
                 }
 
                 var msgCompFields = gMsgCompose.compFields;
@@ -273,8 +274,12 @@ function updateEditor()
         var rootNode = editor.rootElement.QueryInterface(Components.interfaces.nsIDOMNode);
         wholeDocRange.selectNodeContents(rootNode);
         editor.selection.addRange(wholeDocRange);
-        editor.selection.deleteFromDocument();
-        editor.insertTextWithQuotations(messageText);
+        try {
+            editor.selection.deleteFromDocument();
+        } catch(e) {
+            // The selection did not exist yet. Everything should be fine
+        }
+        editor.QueryInterface(Components.interfaces.nsIEditorMailSupport).insertTextWithQuotations(messageText);
     }
 }
 
