@@ -163,7 +163,8 @@ function launchExtEditor() {
     }
 
     if (isEditAsHtml()) {
-        // params in http://lxr.mozilla.org/seamonkey/source/content/base/public/nsIDocumentEncoder.h
+        // params in http://mxr.mozilla.org/aviarybranch/source/content/base/public/nsIDocumentEncoder.h  (old)
+        //    or in  http://mxr.mozilla.org/comm-central/source/mozilla/content/base/public/nsIDocumentEncoder.idl
         content += GetCurrentEditor().outputToString("text/html", 2);
     } else {
         content += GetCurrentEditor().outputToString("text/plain", 0);
@@ -366,6 +367,7 @@ function tmpFilename(str, use83filename) {
     var d = new Date();
     var t = d.getTime();
     var fn = tmpDir() + dirSeparator;
+    var basenameLenLimit = 80; // limit basename to X chars (don't use values smaller than t.length)
 
     if (use83filename) {
         fn += t.toString().substr(-8,8) + ".eml";   // Last 8 chars of the time
@@ -375,7 +377,8 @@ function tmpFilename(str, use83filename) {
         } else {
             str = str.replace(/[\s_]+/g,"_").replace(/[^a-zA-Z0-9_\-חיטכךאהןמצפüû]+/g,'').replace(/_+/g,"_");
         }
-        fn += str + "_" + t + ".eml";
+        var suffix = "_" + t + ".eml";
+        fn += str.substr(0, basenameLenLimit - suffix.length) + suffix;
     }   
     return fn;
 }
