@@ -17,12 +17,12 @@ instead of those above.
 
 //-----------------------------------------------------------------------------
 // communication from extension settings to here
-function exteditorObserver() {
-    this.id = "exteditorObserver";
+function extEditorSettingsObserver() {
+    this.id = "extEditorSettingsObserver";
     this.service = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
     this.register();
 }
-exteditorObserver.prototype = {
+extEditorSettingsObserver.prototype = {
     observe: function(subject, topic, prefString) {
 
         var data = AFreadPref(prefString);
@@ -53,39 +53,21 @@ exteditorObserver.prototype = {
 }
 
 //-----------------------------------------------------------------------------
-// Runnable to be executed by a thread
-function exteditorRunnable(func) {
-  this.run = func;
+// communication from the asynchronous editor process to update the TB editor window once the external editor returned
+function extEditorObserver() {
+    this.id = "extEditorObserver";
+    this.service = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
+    this.register();
 }
-exteditorRunnable.prototype = {
-  QueryInterface : function(iid) {
-    if (iid.equals(Components.interfaces.nsIRunnable) ||
-        iid.equals(Components.interfaces.nsISupports)) {
-      return this;
-    }
-    throw Components.results.NS_ERROR_NO_INTERFACE;
-  }
-};
-
-
-
-//-----------------------------------------------------------------------------
-// separate thread manager to launch a blocking editor
-function exteditorThread() {
-    this.ThreadManager = Components.classes["@mozilla.org/thread-manager;1"].getService();
-    this.thread = this.ThreadManager.newThread(0);
-    this.isRunning = false;
-}
-exteditorThread.prototype = {
-    launch: function(threadFnct) {
-        this.isRunning = true;
-        this.thread.dispatch(new exteditorRunnable(threadFnct), this.thread.DISPATCH_NORMAL);
+extEditorObserver.prototype = {
+    observe: function(subject, topic, prefString) {
+        updateEditor();
     },
-    isInThread: function() {
-        return ( ! this.ThreadManager.isMainThread);
+    register: function() {
+        this.service.addObserver(this, this.id, false);
     },
-    alert: function(msg) {
-        this.ThreadManager.mainThread.dispatch(new exteditorRunnable(alert(msg)), ThreadManager.mainThread.DISPATCH_NORMAL);
+    unregister: function() {
+        this.service.removeObserver(this, this.id);
     }
 }
 
@@ -114,8 +96,7 @@ function getLocaleString(aName)
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
-var thread;
-var observer;
+var settingsObserver;
 var dirSeparator;
 var pathSeparator;
 var osType;
@@ -126,7 +107,7 @@ var headersEnd; // to be initialized in initExteditor() with os specific newline
 var prefEditorUnicode;  // bool
 var prefEditor83Filename;  // bool
 var file;
-
+var isEditorDisabled = false;
 
 const exteditor_GLOBAL = "Global";  // just to store the global headers preference
 var   exteditor_SUBJECT   = getLocaleString("Subject");
@@ -174,20 +155,11 @@ function launchExtEditor() {
     file = tmpFilename(subject, prefEditor83Filename);
     extEditorWriteFile(content, prefEditorUnicode, file);
 
-    thread.launch(runEditor);
-}
-
-//-----------------------------------------------------------------------------
-function runEditor()
-{
     var params = new Array(file);
-    extEditorRunProgram(prefNotifierExe, params); // blocking call
-
-    var ThreadManager = Components.classes["@mozilla.org/thread-manager;1"].getService();
-    ThreadManager.mainThread.dispatch(new exteditorRunnable(updateEditor), ThreadManager.mainThread.DISPATCH_NORMAL);
-
-    thread.isRunning = false;
+    editorObserver = new extEditorObserver();
+    extEditorRunProgram(prefNotifierExe, params, editorObserver); // non blocking call
 }
+
 
 //-----------------------------------------------------------------------------
 function updateEditor()
@@ -239,6 +211,7 @@ function updateEditor()
                 }
 
                 var msgCompFields = gMsgCompose.compFields;
+
                 Recipients2CompFields(msgCompFields);
 
                 if (prefEditHeaders[exteditor_TO])        msgCompFields.to         = headerHash[exteditor_TO.toLowerCase()];
@@ -287,11 +260,7 @@ function updateEditor()
 //-----------------------------------------------------------------------------
 function extEditorError(msg) {
     msg = "ExtEditor: " + msg;
-    if (thread.isInThread()) {
-        thread.alert(msg);
-    } else {
-        alert(msg);
-    }
+    alert(msg);
 }
 
 //-----------------------------------------------------------------------------
@@ -300,7 +269,7 @@ function extEditorError(msg) {
 
 //-----------------------------------------------------------------------------
 function tryCloseExtEditor() {
-    if (thread.isRunning) {
+    if (isEditorDisabled) {
         extEditorError(getLocaleString("CloseYourExternalEditorFirst"));
         return false;
     }
@@ -320,12 +289,8 @@ function initExteditor() {
         osType = 'unix';
         newLine = "\n";
     }
-    // MacOS (window.navigator.platform = "MacPPC")
-    // newLine = "\r" ?
 
-
-    observer = new exteditorObserver();
-    thread = new exteditorThread();
+    settingsObserver = new extEditorSettingsObserver();
 
     var editHtmlAsHtml = nsPreferences.getBoolPref('exteditor.html.editAsHtml', true);
     prefNotifierExe                      = nsPreferences.copyUnicharPref('exteditor.default.editor', "");
@@ -421,6 +386,8 @@ function setEditorDisabled(flag) {
             elt.setAttribute("collapsed", val);
         }
     }
+    
+    isEditorDisabled = flag;
 }
 
 //-----------------------------------------------------------------------------
@@ -571,7 +538,7 @@ function extEditorReadFile(filename, isUnicode) {
 }
 
 //-----------------------------------------------------------------------------
-function extEditorRunProgram(executable, args) {
+function extEditorRunProgram(executable, args, observer) {
     if (executable == null) {
         return false; // no command is set
     }
@@ -635,7 +602,7 @@ function extEditorRunProgram(executable, args) {
         }
 
         pr.init(exec);
-        pr.run(true /* block */, args, args.length);
+        pr.runAsync(args, args.length, observer);
     }
     catch (e) {
         extEditorError(getLocaleString("CantRunExe") + ": '" + 
@@ -702,29 +669,3 @@ function printList(titre, array)
     }
     extEditorError(msg);
 }
-
-// //-----------------------------------------------------------------------------
-// function doAction() {
-//    var file = Components.classes["@mozilla.org/file/local;1"].
-//                 createInstance(Components.interfaces.nsILocalFile);
-//     file.initWithPath("/oml/feblot/Extensions/test.js");
-// 
-//     // Get the file with the code
-//     if (!file.exists())
-//         dump ("doAction() Error: File does not exists.\n");
-// 
-//     // Read the file into code
-//     var code = "";
-//     var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"]
-//     .createInstance(Components.interfaces.nsIFileInputStream);
-//     var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"]
-//     .createInstance(Components.interfaces.nsIScriptableInputStream);
-//     fstream.init(file, 1, 0, false);
-//     sstream.init(fstream);
-//     code += sstream.read(-1);
-//     sstream.close();
-//     fstream.close();
-// 
-//     // Run the code
-//     eval(code);
-// } 

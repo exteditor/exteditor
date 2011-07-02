@@ -40,16 +40,16 @@ function onOK()
     AFwriteObjPref('exteditor_cbEditHeaderReplyTo');
     AFwriteObjPref('exteditor_cbEditHeaderNewsgroup');
     
-    observerService.notifyObservers(null, "exteditorObserver", AFgetPrefString('exteditor_leEditor'));
-    observerService.notifyObservers(null, "exteditorObserver", AFgetPrefString('exteditor_cbEditorUnicode'));
-    observerService.notifyObservers(null, "exteditorObserver", AFgetPrefString('exteditor_cbEditor83Filename'));
-    observerService.notifyObservers(null, "exteditorObserver", AFgetPrefString('exteditor_cbEditHeaders'));
-    observerService.notifyObservers(null, "exteditorObserver", AFgetPrefString('exteditor_cbEditHeaderSubject'));
-    observerService.notifyObservers(null, "exteditorObserver", AFgetPrefString('exteditor_cbEditHeaderTo'));
-    observerService.notifyObservers(null, "exteditorObserver", AFgetPrefString('exteditor_cbEditHeaderCc'));
-    observerService.notifyObservers(null, "exteditorObserver", AFgetPrefString('exteditor_cbEditHeaderBcc'));
-    observerService.notifyObservers(null, "exteditorObserver", AFgetPrefString('exteditor_cbEditHeaderReplyTo'));
-    observerService.notifyObservers(null, "exteditorObserver", AFgetPrefString('exteditor_cbEditHeaderNewsgroup'));
+    observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_leEditor'));
+    observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_cbEditorUnicode'));
+    observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_cbEditor83Filename'));
+    observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_cbEditHeaders'));
+    observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_cbEditHeaderSubject'));
+    observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_cbEditHeaderTo'));
+    observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_cbEditHeaderCc'));
+    observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_cbEditHeaderBcc'));
+    observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_cbEditHeaderReplyTo'));
+    observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_cbEditHeaderNewsgroup'));
 }
 
 //-----------------------------------------------------------------------------

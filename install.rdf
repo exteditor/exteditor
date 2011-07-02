@@ -8,7 +8,7 @@
 
     <name>External Editor</name>
     <type>2</type>
-    <version>0.9.0</version>
+    <version>1.0.0</version>
     <!-- description done with the prefs.js and locale/properties files -->
     <creator>Alexandre Feblot</creator>
     <homepageURL>http://globs.org/</homepageURL>
@@ -18,8 +18,8 @@
     <targetApplication>
       <r:Description>
         <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
-        <minVersion>3.0b1pre</minVersion>
-        <maxVersion>3.1.*</maxVersion>
+        <minVersion>3.1</minVersion>
+        <maxVersion>9.0.*</maxVersion>
       </r:Description>
     </targetApplication>
 
