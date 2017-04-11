@@ -6,20 +6,19 @@
   <r:Description about="urn:mozilla:install-manifest">
     <id>{11d1a081-b8c3-4002-af38-6ad3e899fdfa}</id>
 
-    <name>External Editor</name>
+    <name>External Editor with TB52 compatibility</name>
     <type>2</type>
-    <version>1.0.0</version>
+    <version>1.0.1-unofficial</version>
     <!-- description done with the prefs.js and locale/properties files -->
     <creator>Alexandre Feblot</creator>
-    <homepageURL>http://globs.org/</homepageURL>
-    <updateURL>https://harris.hostingzoom.com/~b2v/alex/update.rdf</updateURL>
+    <homepageURL>http://github.com/snipsnipsnip/exteditor/releases/</homepageURL>
     <iconURL>chrome://exteditor/content/exteditor.png</iconURL>
 
     <targetApplication>
       <r:Description>
         <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
-        <minVersion>3.1</minVersion>
-        <maxVersion>9.0.*</maxVersion>
+        <minVersion>52</minVersion>
+        <maxVersion>52</maxVersion>
       </r:Description>
     </targetApplication>
 
