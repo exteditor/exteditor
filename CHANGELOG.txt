@@ -1,0 +1,108 @@
+ v1.0.0 (02 Juil 2011)
+
+    [new] Compatible with Thunderbird 5.0
+
+v0.9.0 (04 Jul 2010)
+
+    [new] Compatible with Thunderbird 3.1
+    [new] Nez languages: uk-UA, ro-RO, ca-AD
+
+v0.8.0 (30 Aug 2008)
+
+    [new] Compatible with Thunderbird 3 (and only Thunderbird 3) as of version beta1
+    [new] The behaviour will be more responsive when closing the external editor
+    [new] New locales: zh-CN, fi-FI, be-BY, ar, zh-TW, ru-RU
+    [bug] Correct a bug causing the Thunderbird editor window to remain disabled after an error when closing the external editor
+
+v0.7.4 (24 May 2008)
+
+    [bug] Parts of the messages marked as quotations are now properly kept accross EE edition.
+    Use an https update URL which will become mandatory for the update mechanism to keep working with Thunderbird 3
+    This version doesn't work yet on Thunderbird 3
+
+v0.7.3 (08 Mar 2007)
+
+    [bug] With TB 2.0, a plaintext message composer window switched to a html-like mode, after having used External Editor
+
+v0.7.2 (14 Fev 2006)
+
+    [new] Added a 8+3 temporary filename option, to allow using DOS editors.
+    [new] Polish locale
+    [bug] Solves the double-newlines appearing when copy/pasting a block edited on Windows.
+
+v0.7.1 (19 sept 2005)
+
+    [new] Compatible Thunderbird 1.5 .
+    [new] Added a dutch locale.
+    Update of the japanese locale.
+
+v0.7.0 (30 Aug 2005)
+
+    [new] The extension has been localized. Locale available are:
+        English
+        French
+        Italian
+        Spanish
+        Slovak
+        Japanese
+    [new] Compatible with Thunderbird 1.1 .
+    [new] Option to specify if the editor handle Unicode characters.
+    [bug] Whith accented characters inserted using a non Unicode editor, the extension crahsed. Now, it keeps your work without the Unicode conversion. You may get back to what you typed with Ctrl-Z (twice).
+    [bug] The chosen editor in the preferences was not properly (and immediately) taken in account. It works fine now.
+
+v0.6.1 (27 Jun 2005)
+
+    [bug] Corrects the bug about headersEnd and bt undefined, which appeared if the External Editor button had not been drag'n droppedin the messenger compose window toolbar.
+
+v0.6.0 (26 Apr 2005)
+
+    [new] Unicode support (remember to set unicode encoding in the Compose window before launching External Editor: Menu Options/Character Encoding: Unicode (UTF-8) ).
+    [bug] Headers which are not displayed in the editor are not suppressed anymore from the message headers list.
+
+v0.5.4 (14 Mar 2005)
+
+    [bug] The extension did not work and froze Thunderbird if Yamb was not installed (chrome namespace error).
+    [bug] The Html/Plain selector now works properly at the first run.
+
+v0.5.3 (08 Mar 2005)
+
+    [new] Preferences to chose to edit headers and which of them will be edited.
+    [new] No more space between the colon (:) and the headers name, to work with the GVIM syntax highlighting system.
+    [new] The temporary file is now an eml file instead of a txt file.
+    [new] Adds 'Newsgroup' to the editable headers.
+    [bug] If the extenal editor path chosen with the file selection box contains spaces (ex: C:Program Files...), it is automaticaly quoted.
+    [bug] A quoted executable doesn't lead anymore to a trailing quote on the extrernal editor button name.
+    [bug] The menu entry "Tools/Edit in External Editor" is now working.
+    [bug] The subject was not updated if it contained colons (:).
+
+v0.5.2 (18 Jan 2005)
+
+    [new] The external editor arguments may contain spaces when quoted.
+    [bug] No more "carriage return" visible under windows (New lines are homogeneous in headers and in the message body).
+
+v0.5.1 (14 Jan 2005)
+
+    Adapted icon size (standard sizes have changed with TB 1.0).
+
+v0.5.0 (12 Jan 2005)
+
+    [new] Added an entry in the Tool menu and a keyboard shortcut (Ctrl-E) for launching External Editor
+    [new] External Editor got it's own icon (useless but prettier).
+
+v0.4.0 (15 Dec 2004)
+
+    [new] Headers can now be edited in the external editor, given as a comma separated list in a paragraph before the message content; Supportedheaders are: Subject, To, Cc, Bcc, Reply-To.
+
+v0.3.0 (2 Dec 2004)
+
+    Updated and checked for Thunderbird 1.0.
+
+v0.2.0 (21 Nov 2004)
+
+    [bug] Xml tags () are not considered anymore as tags info when editing plain text.
+    [new] When composing in HTML mode, the External Editor button now provides a drop down menu allowing to edit as HTML (thus keeping all textenhancements), or as plain text.
+    [new] The executable may now contain options (example: xterm -e vi).
+
+v0.1.2 (19 Nov 2004)
+
+    [bug] The preference file selection box works now properly on Unix.
