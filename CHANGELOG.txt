@@ -1,4 +1,9 @@
- v1.0.0 (02 Juil 2011)
+v1.0.2 (24 May 2017)
+
+    [new] Compatible with Thunderbird 52
+    This version won't work on Thunderbird 51 and former.
+
+v1.0.0 (02 Jul 2011)
 
     [new] Compatible with Thunderbird 5.0
 

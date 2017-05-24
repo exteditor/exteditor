@@ -1,6 +1,13 @@
+# External Editor
+
+[![Latest release](https://badge.fury.io/gh/exteditor%2Fexteditor.svg)](https://github.com/exteditor/exteditor/releases)
+
+* See [Wiki](https://github.com/exteditor/exteditor/wiki) for  documentation/screenshots etc.
+* [Changelog](CHANGELOG.txt)
+
 # Purpose
 
-Thunderbird mail client extension which allows to open and edit your messages in an external text editor such as **NEdit**, **emacs**, etc...  
+Thunderbird mail client extension which allows to open and edit your messages in an external text editor such as **NEdit**, **emacs**, etc...
 
 # Installation
 
@@ -61,7 +68,7 @@ But you can then modify it, use multiple lines, and add as many headers type as 
 
 # Supported platforms
 
-External Editor has been tested on Windows (XP) and Linux. It also works on Mac OSX, beginning with Thunderbird 1.1.
+External Editor has been tested on Windows (XP and later) and Linux. It also works on Mac OSX, beginning with Thunderbird 1.1.
 
 # How to build
 
@@ -71,7 +78,8 @@ Make sure you have perl and zip installed on your system and run:
 
 # Interesting posts and reference
 
-* http://globs.org/thread.php?lng=en&pg=1037&fid=7&cat=1
-* http://globs.org/thread.php?lng=en&pg=2655&fid=2&cat=1
-* http://globs.org/thread.php?lng=en&pg=231&fid=10&cat=1
+* [Security issue with subjects visible in tmp filenames](http://globs.org/thread.php?lng=en&pg=1037&fid=7&cat=1)
+* [Hot key disable/customization](http://globs.org/thread.php?lng=en&pg=2655&fid=2&cat=1)
+* [Change key binding](http://globs.org/thread.php?lng=en&pg=231&fid=10&cat=1)
 * https://developer.mozilla.org/en-US/docs/XUL
+* [When will XUL be deprecated for Thunderbird?](https://discourse.mozilla-community.org/t/introduction-to-add-on-development/608/27)

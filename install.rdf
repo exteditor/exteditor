@@ -6,12 +6,12 @@
   <r:Description about="urn:mozilla:install-manifest">
     <id>{11d1a081-b8c3-4002-af38-6ad3e899fdfa}</id>
 
-    <name>External Editor with TB52 compatibility</name>
+    <name>External Editor</name>
     <type>2</type>
-    <version>1.0.1-unofficial</version>
+    <version>1.0.2</version>
     <!-- description done with the prefs.js and locale/properties files -->
     <creator>Alexandre Feblot</creator>
-    <homepageURL>http://github.com/snipsnipsnip/exteditor/releases/</homepageURL>
+    <homepageURL>http://github.com/exteditor/exteditor/releases/</homepageURL>
     <iconURL>chrome://exteditor/content/exteditor.png</iconURL>
 
     <targetApplication>
