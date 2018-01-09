@@ -8,10 +8,8 @@ var observerService = Components.classes["@mozilla.org/observer-service;1"].getS
 
 //-----------------------------------------------------------------------------
 var strbundle;
-function getLocaleString(aName)
-{
-    try
-    {
+function getLocaleString(aName) {
+    try {
         if (!strbundle) {
             var strBundleService = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
             strbundle = strBundleService.createBundle("chrome://exteditor/locale/exteditor.properties");
@@ -29,12 +27,11 @@ function getLocaleString(aName)
 
 
 //-----------------------------------------------------------------------------
-function onOK()
-{
+function onOK() {
     var exteditor = document.getElementById('exteditor_leEditor').value;
-    exteditor = exteditor.replace(/(^\s+)|(\s+$)/g,'');
+    exteditor = exteditor.replace(/(^\s+)|(\s+$)/g, '');
     document.getElementById('exteditor_leEditor').value = exteditor;
-    
+
     AFwriteObjPref('exteditor_leEditor');
     AFwriteObjPref('exteditor_cbEditorUnicode');
     AFwriteObjPref('exteditor_cbEditor83Filename');
@@ -45,7 +42,7 @@ function onOK()
     AFwriteObjPref('exteditor_cbEditHeaderBcc');
     AFwriteObjPref('exteditor_cbEditHeaderReplyTo');
     AFwriteObjPref('exteditor_cbEditHeaderNewsgroup');
-    
+
     observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_leEditor'));
     observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_cbEditorUnicode'));
     observerService.notifyObservers(null, "extEditorSettingsObserver", AFgetPrefString('exteditor_cbEditor83Filename'));
@@ -59,8 +56,7 @@ function onOK()
 }
 
 //-----------------------------------------------------------------------------
-function onLoad()
-{
+function onLoad() {
     AFreadObjPref('exteditor_leEditor', "...");
     AFreadObjPref('exteditor_cbEditorUnicode', true);
     AFreadObjPref('exteditor_cbEditor83Filename', false);
@@ -72,7 +68,7 @@ function onLoad()
     AFreadObjPref('exteditor_cbEditHeaderReplyTo', false);
     AFreadObjPref('exteditor_cbEditHeaderNewsgroup', false);
     activate('exteditor_cbEditHeaders', 'exteditor_brcstEditHeaders');
-    
+
     // 8+3 filenames are only usefull for DOS programmes, so hide this
     // prof if OS is not Windows
     if (window.navigator.platform.toLowerCase().indexOf("win") == -1) {
@@ -82,8 +78,7 @@ function onLoad()
 }
 
 //-----------------------------------------------------------------------------
-function activate(cbId, broadcasterId)
-{ 
+function activate(cbId, broadcasterId) {
     var broadcaster = document.getElementById(broadcasterId);
     var checked = document.getElementById(cbId).checked;
     if (checked) {
@@ -94,8 +89,7 @@ function activate(cbId, broadcasterId)
 }
 
 //-----------------------------------------------------------------------------
-function selectEditor()
-{
+function selectEditor() {
     var nsIFilePicker = Components.interfaces.nsIFilePicker;
     var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
     fp.init(window, getLocaleString("SelectYourTextEditor"), nsIFilePicker.modeOpen);
@@ -103,7 +97,7 @@ function selectEditor()
     if (fp.show() == nsIFilePicker.returnOK) {
         var filepath = fp.file.path;
         if (/\s/.test(filepath)) {
-            filepath= '"' + filepath + '"';
+            filepath = '"' + filepath + '"';
         }
         document.getElementById('exteditor_leEditor').value = filepath;
     }
