@@ -431,8 +431,7 @@ function isEditAsHtml() {
 
 //-----------------------------------------------------------------------------
 function extEditorDeleteFile(filename) {
-    var file = Components.classes["@mozilla.org/file/local;1"].
-        createInstance(Components.interfaces.nsILocalFile);
+    var file = makeIFile();
     file.initWithPath(filename);
     if (file.exists()) {
         try {
@@ -447,8 +446,7 @@ function extEditorDeleteFile(filename) {
 //-----------------------------------------------------------------------------
 function extEditorWriteFile(data, isUnicode, filename) {
     try {
-        var file = Components.classes["@mozilla.org/file/local;1"].
-            createInstance(Components.interfaces.nsILocalFile);
+        var file = makeIFile();
         file.initWithPath(filename);
         try {
             /* raises an error if the file already exists */
@@ -486,8 +484,7 @@ function extEditorReadFile(filename, isUnicode) {
     var PERM_IRUSR = 00400;
 
     try {
-        var file = Components.classes["@mozilla.org/file/local;1"].
-            createInstance(Components.interfaces.nsILocalFile);
+        var file = makeIFile();
         file.initWithPath(filename);
         if (file.exists() && file.isReadable()) {
             var is = Components.classes["@mozilla.org/network/file-input-stream;1"].
@@ -547,8 +544,7 @@ function extEditorRunProgram(executable, args, observer) {
     }
 
     try {
-        var exec = Components.classes["@mozilla.org/file/local;1"].
-            createInstance(Components.interfaces.nsILocalFile);
+        var exec = makeIFile();
         var pr = Components.classes["@mozilla.org/process/util;1"].
             createInstance(Components.interfaces.nsIProcess);
 
@@ -652,4 +648,10 @@ function printList(titre, array) {
         msg += "\n" + i + ": " + array[i];
     }
     extEditorError(msg);
+}
+
+//-----------------------------------------------------------------------------
+function makeIFile() {
+    return Components.classes["@mozilla.org/file/local;1"].
+        createInstance(Components.interfaces.nsILocalFile);
 }
