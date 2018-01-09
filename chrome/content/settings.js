@@ -94,11 +94,21 @@ function selectEditor() {
     var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
     fp.init(window, getLocaleString("SelectYourTextEditor"), nsIFilePicker.modeOpen);
     fp.appendFilters(nsIFilePicker.filterApps);
-    if (fp.show() == nsIFilePicker.returnOK) {
+    openFilePicker(fp, function (ret) {
+        if (ret !== nsIFilePicker.returnOK) { return; }
         var filepath = fp.file.path;
         if (/\s/.test(filepath)) {
             filepath = '"' + filepath + '"';
         }
         document.getElementById('exteditor_leEditor').value = filepath;
+    });
+}
+
+//-----------------------------------------------------------------------------
+function openFilePicker(filePicker, callback) {
+    if ("show" in filePicker) {
+        callback(filePicker.show());
+    } else {
+        filePicker.open(callback);
     }
 }
