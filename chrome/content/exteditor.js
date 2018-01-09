@@ -653,5 +653,5 @@ function printList(titre, array) {
 //-----------------------------------------------------------------------------
 function makeIFile() {
     return Components.classes["@mozilla.org/file/local;1"].
-        createInstance(Components.interfaces.nsILocalFile);
+        createInstance(Components.interfaces.nsIFile);
 }
