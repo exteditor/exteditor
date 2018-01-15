@@ -120,7 +120,7 @@ function AFreadObjPref(objId, defValue) {
     if (atr == "") return;
 
     var val = AFgetObjPref(objId, defValue);
-    eval("obj." + atr + "=val");
+    obj[atr] = val;
 }
 
 //-----------------------------------------------------------------------------
@@ -155,8 +155,7 @@ function AFwriteObjPref(objId) {
 
     if ((typ == "") || (atr == "") || (str == "")) return;
 
-    var val;
-    eval("val=obj." + atr);
+    var val = obj[atr];
 
     if (typ == "bool") {
         nsPreferences.setBoolPref(str, val);
