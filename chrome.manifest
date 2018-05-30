@@ -1,6 +1,7 @@
 
 overlay	chrome://messenger/content/messengercompose/messengercompose.xul	chrome://exteditor/content/exteditor.xul
-overlay	chrome://global/content/customizeToolbar.xul	chrome://exteditor/content/exteditor.xul
+overlay	chrome://global/content/customizeToolbar.xul	chrome://exteditor/content/exteditor.xul appversion<59.0a1
+overlay	chrome://messenger/content/customizeToolbar.xul	chrome://exteditor/content/exteditor.xul appversion>=59.0a1
 content	exteditor	jar:chrome/exteditor.jar!/content/
 
 locale	exteditor	en-US	jar:chrome/exteditor.jar!/locale/en-US/exteditor/
