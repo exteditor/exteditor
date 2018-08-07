@@ -1,3 +1,8 @@
+v1.0.3 (07 Aug 2018)
+
+    [new] Compatible with Thunderbird 60
+    Look for [Tools]->[Add-on Options]->[External Editor] for configuration panel.
+
 v1.0.2 (24 May 2017)
 
     [new] Compatible with Thunderbird 52
