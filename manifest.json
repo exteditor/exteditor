@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "External Editor",
+  "version": "2.0.0-beta",
+  "author": "exteditor",
+  "homepage_url": "https://github.com/exteditor/exteditor/",
+  "applications": {
+    "gecko": {
+      "id": "{11d1a081-b8c3-4002-af38-6ad3e899fdfa}",
+      "strict_min_version": "63"
+    }
+  },
+  "legacy": {
+    "options": {
+      "page": "chrome://exteditor/content/settings.xul"
+    }
+  },
+  "icons": {
+    "32": "chrome/content/exteditor.png"
+  }
+}
