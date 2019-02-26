@@ -239,7 +239,9 @@ function updateEditor() {
         } catch (e) {
             // The selection did not exist yet. Everything should be fine
         }
-        editor.QueryInterface(Components.interfaces.nsIEditorMailSupport).insertTextWithQuotations(messageText);
+        if (messageText) {
+            editor.QueryInterface(Components.interfaces.nsIEditorMailSupport).insertTextWithQuotations(messageText);
+        }
     }
 }
 
