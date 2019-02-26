@@ -1,3 +1,7 @@
+v1.0.4 (26 Feb 2019)
+
+    [bug] Fixes to crash caused by an empty message body
+
 v1.0.3 (07 Aug 2018)
 
     [new] Compatible with Thunderbird 60
