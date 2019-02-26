@@ -10,9 +10,6 @@
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
     <script type="application/x-javascript"
-        src="chrome://global/content/nsUserSettings.js"/>
-
-    <script type="application/x-javascript"
         src="chrome://exteditor/content/pref.js" />
 
     <script type="application/x-javascript"
