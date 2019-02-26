@@ -78,7 +78,7 @@ var strbundle;
 function getLocaleString(aName) {
     try {
         if (!strbundle) {
-            var strBundleService = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
+            var strBundleService = Services.strings;
             strbundle = strBundleService.createBundle("chrome://exteditor/locale/exteditor.properties");
         }
 
@@ -86,10 +86,15 @@ function getLocaleString(aName) {
             return strbundle.GetStringFromName(aName);
     }
     catch (e) {
-        alert("Cannot get the localized string bundle: " + e);
+        extEditorError("Cannot get the localized string bundle: " + e);
     }
 
     return null;
+}
+
+function extEditorError(msg) {
+    msg = "ExtEditor: " + msg;
+    alert(msg);
 }
 
 //-----------------------------------------------------------------------------

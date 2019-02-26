@@ -61,27 +61,6 @@ extEditorObserver.prototype = {
 }
 
 //-----------------------------------------------------------------------------
-var strbundle;
-function getLocaleString(aName) {
-    try {
-        if (!strbundle) {
-            var strBundleService = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
-            strbundle = strBundleService.createBundle("chrome://exteditor/locale/exteditor.properties");
-        }
-
-        if (strbundle)
-            return strbundle.GetStringFromName(aName);
-    }
-    catch (e) {
-        extEditorError("Cannot get the localized string bundle: " + e);
-    }
-
-    return null;
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
 
 var settingsObserver;
 var dirSeparator;
@@ -244,16 +223,6 @@ function updateEditor() {
         }
     }
 }
-
-//-----------------------------------------------------------------------------
-function extEditorError(msg) {
-    msg = "ExtEditor: " + msg;
-    alert(msg);
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
 function tryCloseExtEditor() {
