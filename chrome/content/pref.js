@@ -9,7 +9,7 @@ You can obtain one at https://mozilla.org/MPL/2.0/.
 // compat taken from http://qiita.com/sayamada/items/d6d26a3c2e9613854019
 var nsPreferences;
 nsPreferences = nsPreferences || ({
-    orgPrefs: Components.classes["@mozilla.org/preferences-service;1"]
+    mPrefService: Components.classes["@mozilla.org/preferences-service;1"]
         .getService(Components.interfaces.nsIPrefService)
         .getBranch(""),
     copyUnicharPref: function (key, defaultVal) {
@@ -18,10 +18,10 @@ nsPreferences = nsPreferences || ({
         }
         var val = undefined;
         try {
-            if ("getStringPref" in this.orgPrefs) {
-                val = this.orgPrefs.getStringPref(key);
+            if ("getStringPref" in this.mPrefService) {
+                val = this.mPrefService.getStringPref(key);
             } else {
-                val = this.orgPrefs.getComplexValue(key, Components.interfaces.nsISupportsString).data;
+                val = this.mPrefService.getComplexValue(key, Components.interfaces.nsISupportsString).data;
             }
         } catch (e) {
             console.log(e);
@@ -33,18 +33,18 @@ nsPreferences = nsPreferences || ({
         }
     },
     setUnicharPref: function (key, val) {
-        if ("setStringPref" in this.orgPrefs) {
-            this.orgPrefs.setStringPref(key, val);
+        if ("setStringPref" in this.mPrefService) {
+            this.mPrefService.setStringPref(key, val);
         } else {
             var str = Components.classes["@mozilla.org/supports-string;1"]
                 .createInstance(Components.interfaces.nsISupportsString);
             str.data = val;
-            this.orgPrefs.setComplexValue(key, Components.interfaces.nsISupportsString, str);
+            this.mPrefService.setComplexValue(key, Components.interfaces.nsISupportsString, str);
         }
     },
     getBoolPref: function (key, defaultVal) {
         try {
-            var tmpVal = this.orgPrefs.getBoolPref(key);
+            var tmpVal = this.mPrefService.getBoolPref(key);
             if (tmpVal || tmpVal === "true") {
                 return true;
             } else {
@@ -56,20 +56,20 @@ nsPreferences = nsPreferences || ({
     },
     setBoolPref: function (key, val) {
         if (val || val === "true") {
-            this.orgPrefs.setBoolPref(key, true);
+            this.mPrefService.setBoolPref(key, true);
         } else {
-            this.orgPrefs.setBoolPref(key, false);
+            this.mPrefService.setBoolPref(key, false);
         }
     },
     getIntPref: function (key, defaultVal) {
         try {
-            return this.orgPrefs.getIntPref(key);
+            return this.mPrefService.getIntPref(key);
         } catch (e) {
             return defaultVal;
         }
     },
     setIntPref: function (key, val) {
-        this.orgPrefs.setIntPref(key, val);
+        this.mPrefService.setIntPref(key, val);
     }
 });
 
