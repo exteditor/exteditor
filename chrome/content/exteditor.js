@@ -210,7 +210,7 @@ function updateEditor() {
         // Don't use rebuildDocumentFromSource() here: it turns the editor in a
         // html mode in  which multiple spaces disapear.
         var wholeDocRange = editor.document.createRange();
-        var rootNode = editor.rootElement.QueryInterface(Components.interfaces.nsIDOMNode);
+        var rootNode = editor.rootElement;
         wholeDocRange.selectNodeContents(rootNode);
         editor.selection.addRange(wholeDocRange);
         try {
@@ -219,7 +219,7 @@ function updateEditor() {
             // The selection did not exist yet. Everything should be fine
         }
         if (messageText) {
-            editor.QueryInterface(Components.interfaces.nsIEditorMailSupport).insertTextWithQuotations(messageText);
+            editor.insertText(messageText);
         }
     }
 }
