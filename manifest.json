@@ -4,6 +4,8 @@
   "version": "2.0.0-beta",
   "author": "exteditor",
   "homepage_url": "https://github.com/exteditor/exteditor/",
+  "description": "__MSG_description__",
+  "default_locale": "en_US",
   "applications": {
     "gecko": {
       "id": "{11d1a081-b8c3-4002-af38-6ad3e899fdfa}",
