@@ -7,26 +7,6 @@ You can obtain one at https://mozilla.org/MPL/2.0/.
 var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
 
 //-----------------------------------------------------------------------------
-var strbundle;
-function getLocaleString(aName) {
-    try {
-        if (!strbundle) {
-            var strBundleService = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
-            strbundle = strBundleService.createBundle("chrome://exteditor/locale/exteditor.properties");
-        }
-
-        if (strbundle)
-            return strbundle.GetStringFromName(aName);
-    }
-    catch (e) {
-        alert("Cannot get the localized string bundle: " + e);
-    }
-
-    return null;
-}
-
-
-//-----------------------------------------------------------------------------
 function onOK() {
     var exteditor = document.getElementById('exteditor_leEditor').value;
     exteditor = exteditor.replace(/(^\s+)|(\s+$)/g, '');

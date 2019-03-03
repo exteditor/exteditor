@@ -15,9 +15,6 @@
     persist="screenX screenY">
 
     <script type="application/x-javascript"
-        src="chrome://global/content/nsUserSettings.js"/>
-
-    <script type="application/x-javascript"
         src="chrome://exteditor/content/pref.js" />
 
     <script type="application/x-javascript"

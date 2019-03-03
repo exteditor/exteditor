@@ -61,27 +61,6 @@ extEditorObserver.prototype = {
 }
 
 //-----------------------------------------------------------------------------
-var strbundle;
-function getLocaleString(aName) {
-    try {
-        if (!strbundle) {
-            var strBundleService = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
-            strbundle = strBundleService.createBundle("chrome://exteditor/locale/exteditor.properties");
-        }
-
-        if (strbundle)
-            return strbundle.GetStringFromName(aName);
-    }
-    catch (e) {
-        extEditorError("Cannot get the localized string bundle: " + e);
-    }
-
-    return null;
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
 
 var settingsObserver;
 var dirSeparator;
@@ -246,16 +225,6 @@ function updateEditor() {
 }
 
 //-----------------------------------------------------------------------------
-function extEditorError(msg) {
-    msg = "ExtEditor: " + msg;
-    alert(msg);
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------
 function tryCloseExtEditor() {
     if (isEditorDisabled) {
         extEditorError(getLocaleString("CloseYourExternalEditorFirst"));
@@ -328,7 +297,7 @@ function tmpFilename(str, use83filename) {
         if (str == "") {
             str = "Untitled";
         } else {
-            str = str.replace(/[\s_]+/g, "_").replace(/[^a-zA-Z0-9_\-חיטכךאהןמצפüû]+/g, '').replace(/_+/g, "_");
+            str = str.replace(/[\s_]+/g, "_").replace(/[^a-zA-Z0-9_\-\u00e7\u00e9\u010d\u00eb\u0119\u0155\u00e4\u010f\u00ee\u00f6\u00f4\u00fc\u0171]+/g, '').replace(/_+/g, "_");
         }
         var suffix = "_" + t + ".eml";
         fn += str.substr(0, basenameLenLimit - suffix.length) + suffix;
