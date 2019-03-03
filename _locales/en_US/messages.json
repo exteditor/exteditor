@@ -1,0 +1,5 @@
+{
+    "description": {
+        "message": "Allows to edit a mail in your prefered text editor. (Note: Look for Menu->[Tools]->[Add-on Options]->[External Editor] to configure)"
+    }
+}

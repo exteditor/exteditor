@@ -1,0 +1,5 @@
+{
+    "description": {
+        "message": "Позволяет редактировать сообщение в любом редакторе (Note: Look for Menu->[Tools]->[Add-on Options]->[External Editor] to configure)"
+    }
+}
