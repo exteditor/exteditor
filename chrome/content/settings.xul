@@ -1,5 +1,9 @@
-<?xml version="1.0"?> 
-<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://messenger/skin/" type="text/css"?>
+
+<?xml-stylesheet
+    href="chrome://exteditor/content/exteditor.css"
+    type="text/css"?>
 
 <!DOCTYPE dialog SYSTEM "chrome://exteditor/locale/exteditor.dtd">
 
@@ -22,9 +26,10 @@
 
     <broadcaster id="exteditor_brcstEditHeaders"/>
 
+    <description value="&exteditor-settings.title;"/>
 
-
-    <groupbox><caption id="exteditor_exe" label="&exteditor_exe.label;"/>
+    <groupbox>
+        <caption><label id="exteditor_exe" value="&exteditor_exe.label;"/></caption>
         <vbox align="stretch">
             <hbox align="center">
                 <label id="exteditor_editor" value="&exteditor_editor.value;"/>
