@@ -297,7 +297,7 @@ function tmpFilename(str, use83filename) {
         if (str == "") {
             str = "Untitled";
         } else {
-            str = str.replace(/[\s_]+/g, "_").replace(/[^a-zA-Z0-9_\-\u00e7\u00e9\u010d\u00eb\u0119\u0155\u00e4\u010f\u00ee\u00f6\u00f4\u00fc\u0171]+/g, '').replace(/_+/g, "_");
+            str = str.replace(/[\s_]+/g, "_").replace(/[^a-zA-Z0-9_\-]+/g, '').replace(/_+/g, "_");
         }
         var suffix = "_" + t + ".eml";
         fn += str.substr(0, basenameLenLimit - suffix.length) + suffix;
