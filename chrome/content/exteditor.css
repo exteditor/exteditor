@@ -44,3 +44,15 @@ toolbar[iconsize="small"] #exteditor_bt[label="Vim"] {
 toolbar[iconsize="small"] #exteditor_bt[label="Vi"] {
     list-style-image: url("chrome://exteditor/content/vim16.png");
 }
+
+groupbox {
+    margin-top: 1em;
+}
+groupbox > caption {
+    margin-top: -1.5em;
+    padding: 0.5em 1em 0;
+}
+groupbox > caption * {
+    display: inline-block;
+    background: threedface;
+}
