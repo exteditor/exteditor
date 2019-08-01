@@ -8,7 +8,7 @@
 
     <name>External Editor</name>
     <type>2</type>
-    <version>1.0.5-rc0</version>
+    <version>1.0.5</version>
     <!-- description done with the prefs.js and locale/properties files -->
     <creator>Alexandre Feblot</creator>
     <creator>snipsnipsnip</creator>
