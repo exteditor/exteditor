@@ -1,6 +1,12 @@
+v2.0.0-rc0 (01 Aug 2019)
+
+    [bug] Fix to problem with non-ASCII characters in the subject (#25)
+    [new] Compatible with Thunderbird 66
+    This version won't work on Thunderbird 60 and former.
+
 v1.0.4 (26 Feb 2019)
 
-    [bug] Fixes to crash caused by an empty message body
+    [bug] Fixes to crash caused by an empty message body (#11)
 
 v1.0.3 (07 Aug 2018)
 
@@ -19,7 +25,7 @@ v1.0.0 (02 Jul 2011)
 v0.9.0 (04 Jul 2010)
 
     [new] Compatible with Thunderbird 3.1
-    [new] Nez languages: uk-UA, ro-RO, ca-AD
+    [new] New languages: uk-UA, ro-RO, ca-AD
 
 v0.8.0 (30 Aug 2008)
 
