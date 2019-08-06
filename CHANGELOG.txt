@@ -1,6 +1,10 @@
+v1.0.6 (08 Aug 2019)
+
+    [bug] Couldn't open the external editor when the exteditor button is not present on the toolbar (#23)
+
 v1.0.5 (01 Aug 2019)
 
-    [bug] Fix to problem with non-ASCII characters in the subject (#25)
+    [bug] Fix for the problem with non-ASCII characters in the subject (#25)
     Simplified build a bit
 
 v1.0.4 (26 Feb 2019)
