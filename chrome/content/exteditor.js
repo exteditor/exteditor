@@ -197,6 +197,7 @@ function updateEditor() {
         }
     } catch (e) {
         // A message could be displayed her, but I don't wan't to bother with localizations...
+        console.log("exteditor.updateEditor()", e)
     } finally {
         setEditorDisabled(false);
     }
