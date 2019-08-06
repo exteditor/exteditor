@@ -197,6 +197,7 @@ function updateEditor() {
         }
     } catch (e) {
         // A message could be displayed her, but I don't wan't to bother with localizations...
+        console.log("exteditor.updateEditor()", e)
     } finally {
         setEditorDisabled(false);
     }
@@ -393,18 +394,15 @@ function initButton(editorExe, editHtmlAsHtml) {
 
 //-----------------------------------------------------------------------------
 function isEditAsHtml() {
-    // why is this checked attribute returned as a string rather than as a bool ???
-    try{
-        return (
-            IsHTMLEditor() &&
-            document.getElementById('exteditor_editAsHtml').getAttribute('checked') == "true"
-        )
-    }
-    catch(error){
+    if (!IsHTMLEditor()) { return false; }
+
+    var asHtml = document.getElementById('exteditor_editAsHtml');
+    if (!asHtml) {
         // The button is not in the palette bar, check for preference
-        return IsHTMLEditor() && nsPreferences.getBoolPref('exteditor.html.editAsHtml', true)
+        return nsPreferences.getBoolPref('exteditor.html.editAsHtml', true)
     }
 
+    return asHtml.getAttribute('checked') == "true";
 }
 
 //-----------------------------------------------------------------------------
