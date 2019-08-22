@@ -123,7 +123,11 @@ function launchExtEditor() {
 
     var params = new Array(file);
     editorObserver = new extEditorObserver();
-    extEditorRunProgram(prefNotifierExe, params, editorObserver); // non blocking call
+    const launched = extEditorRunProgram(prefNotifierExe, params, editorObserver); // non blocking call
+
+    if (!launched) {
+        setEditorDisabled(false);
+    }
 }
 
 
