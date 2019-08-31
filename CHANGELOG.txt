@@ -1,3 +1,7 @@
+v1.0.7 (31 Aug 2019)
+
+    [bug] Can't close the compose window after launching nonexistent editor (#19)
+
 v1.0.6 (08 Aug 2019)
 
     [bug] Couldn't open the external editor when the exteditor button is not present on the toolbar (#23)
