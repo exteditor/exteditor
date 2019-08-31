@@ -6,23 +6,20 @@ You can obtain one at https://mozilla.org/MPL/2.0/.
 
 // This needs: chrome://global/content/nsUserSettings.js
 
+var Services;
+Services = Services || ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
+
 // compat taken from http://qiita.com/sayamada/items/d6d26a3c2e9613854019
 var nsPreferences;
 nsPreferences = nsPreferences || ({
-    mPrefService: Components.classes["@mozilla.org/preferences-service;1"]
-        .getService(Components.interfaces.nsIPrefService)
-        .getBranch(""),
+    mPrefService: Services.prefs.getBranch(""),
     copyUnicharPref: function (key, defaultVal) {
         if (defaultVal === undefined) {
             defaultVal = "";
         }
         var val = undefined;
         try {
-            if ("getStringPref" in this.mPrefService) {
-                val = this.mPrefService.getStringPref(key);
-            } else {
-                val = this.mPrefService.getComplexValue(key, Components.interfaces.nsISupportsString).data;
-            }
+            val = this.mPrefService.getStringPref(key);
         } catch (e) {
             console.log(e);
         }
@@ -33,14 +30,7 @@ nsPreferences = nsPreferences || ({
         }
     },
     setUnicharPref: function (key, val) {
-        if ("setStringPref" in this.mPrefService) {
-            this.mPrefService.setStringPref(key, val);
-        } else {
-            var str = Components.classes["@mozilla.org/supports-string;1"]
-                .createInstance(Components.interfaces.nsISupportsString);
-            str.data = val;
-            this.mPrefService.setComplexValue(key, Components.interfaces.nsISupportsString, str);
-        }
+        this.mPrefService.setStringPref(key, val);
     },
     getBoolPref: function (key, defaultVal) {
         try {
