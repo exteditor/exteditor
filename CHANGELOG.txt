@@ -1,12 +1,19 @@
-v2.0.0-rc1 (08 Aug 2019)
+v2.0.0 (31 Aug 2019)
+
+    [new] Compatible with Thunderbird 68
+    This version won't work on Thunderbird 60 and former.
+
+v1.0.7 (31 Aug 2019)
+
+    [bug] Can't close the compose window after launching nonexistent editor (#19)
+
+v1.0.6 (08 Aug 2019)
 
     [bug] Couldn't open the external editor when the exteditor button is not present on the toolbar (#23)
 
-v2.0.0-rc0 (01 Aug 2019)
+v1.0.5 (01 Aug 2019)
 
     [bug] Fix for the problem with non-ASCII characters in the subject (#25)
-    [new] Compatible with Thunderbird 66
-    This version won't work on Thunderbird 60 and former.
     Simplified build a bit
 
 v1.0.4 (26 Feb 2019)

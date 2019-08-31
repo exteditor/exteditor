@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "External Editor",
-  "version": "2.0.0-rc1",
+  "version": "2.0.0",
   "author": "exteditor",
   "homepage_url": "https://github.com/exteditor/exteditor/",
   "description": "__MSG_description__",
@@ -13,6 +13,7 @@
     }
   },
   "legacy": {
+    "type": "xul",
     "options": {
       "page": "chrome://exteditor/content/settings.xul"
     }
