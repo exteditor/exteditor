@@ -6,6 +6,11 @@ You can obtain one at https://mozilla.org/MPL/2.0/.
 
 var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
 
+document.addEventListener("dialogaccept", (e) => {
+    onOK();
+    return true;
+});
+
 //-----------------------------------------------------------------------------
 function onOK() {
     var exteditor = document.getElementById('exteditor_leEditor').value;
