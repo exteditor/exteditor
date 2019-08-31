@@ -126,7 +126,7 @@ function launchExtEditor() {
     const launched = extEditorRunProgram(prefNotifierExe, params, editorObserver); // non blocking call
 
     if (!launched) {
-      setEditorDisabled(false);
+        setEditorDisabled(false);
     }
 }
 
