@@ -1,3 +1,7 @@
+v1.0.8 (15 Sep 2019)
+
+    [bug] Can't open a file picker to choose the external editor executable (#33)
+
 v1.0.7 (31 Aug 2019)
 
     [bug] Can't close the compose window after launching nonexistent editor (#19)
