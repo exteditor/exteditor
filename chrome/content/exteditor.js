@@ -189,7 +189,7 @@ function updateEditor() {
                 if (prefEditHeaders[exteditor_REPLY_TO]) msgCompFields.replyTo = headerHash[exteditor_REPLY_TO.toLowerCase()];
                 if (prefEditHeaders[exteditor_NEWSGROUP]) msgCompFields.newsgroups = headerHash[exteditor_NEWSGROUP.toLowerCase()];
 
-                CompFields2Recipients(msgCompFields);
+                extEditorCompFields2Recipients(msgCompFields);
             }
         } else {
             // No headers edition here
@@ -227,6 +227,60 @@ function updateEditor() {
             editor.insertText(messageText);
         }
     }
+}
+
+function extEditorCompFields2Recipients(msgCompFields) {
+    // Copied and tweaked from addressingWidgetOverlay.js to keep functionalities as of Thunderbird 60
+
+    let listbox = document.getElementById("addressingWidget");
+    let newListBoxNode = listbox.cloneNode(false);
+    let listBoxColsClone = _menulistFriendlyClone(listbox.itemChildren[0]);
+    newListBoxNode.appendChild(listBoxColsClone);
+    let templateNode = _menulistFriendlyClone(listbox.itemChildren[0]);
+    listbox.parentNode.replaceChild(newListBoxNode, listbox);
+
+    top.MAX_RECIPIENTS = 0;
+    let msgReplyTo = msgCompFields.replyTo;
+    let msgTo = msgCompFields.to;
+    let msgCC = msgCompFields.cc;
+    let msgBCC = msgCompFields.bcc;
+    let msgNewsgroups = msgCompFields.newsgroups;
+    let msgFollowupTo = msgCompFields.followupTo;
+    let havePrimaryRecipient = false;
+    if (msgReplyTo) {
+        awSetInputAndPopupFromArray(msgCompFields.splitRecipients(msgReplyTo, false, {}),
+            "addr_reply", newListBoxNode, templateNode);
+    }
+    if (msgTo) {
+        let rcp = msgCompFields.splitRecipients(msgTo, false, {});
+        if (rcp.length) {
+            awSetInputAndPopupFromArray(rcp, "addr_to", newListBoxNode, templateNode);
+            havePrimaryRecipient = true;
+        }
+    }
+    if (msgCC) {
+        awSetInputAndPopupFromArray(msgCompFields.splitRecipients(msgCC, false, {}),
+            "addr_cc", newListBoxNode, templateNode);
+    }
+    if (msgBCC) {
+        awSetInputAndPopupFromArray(msgCompFields.splitRecipients(msgBCC, false, {}),
+            "addr_bcc", newListBoxNode, templateNode);
+    }
+    if (msgNewsgroups) {
+        awSetInputAndPopup(msgNewsgroups, "addr_newsgroups", newListBoxNode, templateNode);
+        havePrimaryRecipient = true;
+    }
+    if (msgFollowupTo) {
+        awSetInputAndPopup(msgFollowupTo, "addr_followup", newListBoxNode, templateNode);
+    }
+    // If it's a new message, we need to add an extra empty recipient.
+    if (!havePrimaryRecipient) {
+        _awSetInputAndPopup("", "addr_to", newListBoxNode, templateNode);
+    }
+
+    // remove the kept first dummy row
+    awRemoveRow(1);
+    // spellcheck configuration on the original function is omitted since it's not purpose here
 }
 
 //-----------------------------------------------------------------------------
