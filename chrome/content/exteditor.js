@@ -174,9 +174,10 @@ function updateEditor() {
                 }
 
                 var subject = headerHash[exteditor_SUBJECT.toLowerCase()];
-                if (subject !== undefined) {
+                if (subject !== undefined && subject !== GetMsgSubjectElement().value) {
                     document.getElementById('msgSubject').value = subject;
                     gMsgCompose.compFields.subject = subject;
+                    SetComposeWindowTitle();
                 }
 
                 var msgCompFields = gMsgCompose.compFields;
