@@ -1,4 +1,4 @@
-v2.0.1-rc1 (07 Oct 2019)
+v2.0.1-rc1 (08 Oct 2019)
 
     [bug] Send button and address fields won't work sometimes after closing external editor (#39)
 
