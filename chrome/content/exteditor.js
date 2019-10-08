@@ -174,22 +174,40 @@ function updateEditor() {
                 }
 
                 var subject = headerHash[exteditor_SUBJECT.toLowerCase()];
-                if (subject !== undefined) {
-                    document.getElementById('msgSubject').value = subject;
-                    gMsgCompose.compFields.subject = subject;
+                if (subject !== undefined && subject !== GetMsgSubjectElement().value) {
+                    GetMsgSubjectElement().value = subject;
+                    SetComposeWindowTitle();
                 }
 
                 var msgCompFields = gMsgCompose.compFields;
 
                 Recipients2CompFields(msgCompFields);
 
-                if (prefEditHeaders[exteditor_TO]) msgCompFields.to = headerHash[exteditor_TO.toLowerCase()];
-                if (prefEditHeaders[exteditor_CC]) msgCompFields.cc = headerHash[exteditor_CC.toLowerCase()];
-                if (prefEditHeaders[exteditor_BCC]) msgCompFields.bcc = headerHash[exteditor_BCC.toLowerCase()];
-                if (prefEditHeaders[exteditor_REPLY_TO]) msgCompFields.replyTo = headerHash[exteditor_REPLY_TO.toLowerCase()];
-                if (prefEditHeaders[exteditor_NEWSGROUP]) msgCompFields.newsgroups = headerHash[exteditor_NEWSGROUP.toLowerCase()];
+                let knownTypes = new Set();
+                let hasChange = true;
+                exteditorEachAddressType((recipientType, compFieldKey, headerKey) => {
+                    knownTypes.add(recipientType);
 
-                extEditorCompFields2Recipients(msgCompFields);
+                    if (headerKey && !hasChange) {
+                        let edited = msgCompFields.splitRecipients(headerHash[headerKey], false, {}).join(",");
+                        let original = msgCompFields.splitRecipients(msgCompFields[compFieldKey], false, {}).join(",");
+
+                        hasChange = edited !== original;
+                    }
+                })
+
+                // Rewrite all fields if any of the field is changed
+                if (hasChange) {
+                    exteditorClearRecipientOfType(knownTypes);
+                    awCleanupRows();
+
+                    exteditorEachAddressType((recipientType, compFieldKey, headerKey) => {
+                        let addresses = headerKey ? headerHash[headerKey] : msgCompFields[compFieldKey];
+                        awAddRecipients(msgCompFields, recipientType, addresses);
+                    });
+
+                    awCleanupRows();
+                }
             }
         } else {
             // No headers edition here
@@ -229,58 +247,32 @@ function updateEditor() {
     }
 }
 
-function extEditorCompFields2Recipients(msgCompFields) {
-    // Copied and tweaked from addressingWidgetOverlay.js to keep functionalities as of Thunderbird 60
+/**
+ * Enumerates known address field types along with corresponding keys.
+ *
+ * @param cb {(recipientType: string, compFieldKey: string, headerKey?: string) => void}
+ */
+function exteditorEachAddressType(cb) {
+    cb("addr_to", "to", prefEditHeaders[exteditor_TO] ? exteditor_TO.toLowerCase() : undefined);
+    cb("addr_cc", "cc", prefEditHeaders[exteditor_CC] ? exteditor_CC.toLowerCase() : undefined);
+    cb("addr_bcc", "bcc", prefEditHeaders[exteditor_BCC] ? exteditor_BCC.toLowerCase() : undefined);
+    cb("addr_reply", "replyTo", prefEditHeaders[exteditor_REPLY_TO] ? exteditor_REPLY_TO.toLowerCase() : undefined);
+    cb("addr_newsgroups", "newsgroups", prefEditHeaders[exteditor_NEWSGROUP] ? exteditor_NEWSGROUP.toLowerCase() : undefined);
+}
 
-    let listbox = document.getElementById("addressingWidget");
-    let newListBoxNode = listbox.cloneNode(false);
-    let listBoxColsClone = _menulistFriendlyClone(listbox.itemChildren[0]);
-    newListBoxNode.appendChild(listBoxColsClone);
-    let templateNode = _menulistFriendlyClone(listbox.itemChildren[0]);
-    listbox.parentNode.replaceChild(newListBoxNode, listbox);
-
-    top.MAX_RECIPIENTS = 0;
-    let msgReplyTo = msgCompFields.replyTo;
-    let msgTo = msgCompFields.to;
-    let msgCC = msgCompFields.cc;
-    let msgBCC = msgCompFields.bcc;
-    let msgNewsgroups = msgCompFields.newsgroups;
-    let msgFollowupTo = msgCompFields.followupTo;
-    let havePrimaryRecipient = false;
-    if (msgReplyTo) {
-        awSetInputAndPopupFromArray(msgCompFields.splitRecipients(msgReplyTo, false, {}),
-            "addr_reply", newListBoxNode, templateNode);
-    }
-    if (msgTo) {
-        let rcp = msgCompFields.splitRecipients(msgTo, false, {});
-        if (rcp.length) {
-            awSetInputAndPopupFromArray(rcp, "addr_to", newListBoxNode, templateNode);
-            havePrimaryRecipient = true;
+/**
+ * Clears address fields which have specified types.
+ *
+ * @param {Set<string>} recipientTypeSet
+ */
+function exteditorClearRecipientOfType(recipientTypeSet) {
+    for (let row = 1, n = awGetNumberOfRecipients(); row <= n; row++) {
+        let popup = awGetPopupElement(row);
+        if (recipientTypeSet.has(popup.value)) {
+            let input = awGetInputElement(row);
+            awSetInputAndPopupValue(input, "", popup, "addr_to", -1);
         }
     }
-    if (msgCC) {
-        awSetInputAndPopupFromArray(msgCompFields.splitRecipients(msgCC, false, {}),
-            "addr_cc", newListBoxNode, templateNode);
-    }
-    if (msgBCC) {
-        awSetInputAndPopupFromArray(msgCompFields.splitRecipients(msgBCC, false, {}),
-            "addr_bcc", newListBoxNode, templateNode);
-    }
-    if (msgNewsgroups) {
-        awSetInputAndPopup(msgNewsgroups, "addr_newsgroups", newListBoxNode, templateNode);
-        havePrimaryRecipient = true;
-    }
-    if (msgFollowupTo) {
-        awSetInputAndPopup(msgFollowupTo, "addr_followup", newListBoxNode, templateNode);
-    }
-    // If it's a new message, we need to add an extra empty recipient.
-    if (!havePrimaryRecipient) {
-        _awSetInputAndPopup("", "addr_to", newListBoxNode, templateNode);
-    }
-
-    // remove the kept first dummy row
-    awRemoveRow(1);
-    // spellcheck configuration on the original function is omitted since it's not purpose here
 }
 
 //-----------------------------------------------------------------------------
