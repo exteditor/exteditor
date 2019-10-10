@@ -242,10 +242,10 @@ function updateEditor() {
  * @param cb {(recipientType: string, compFieldKey: string, headerKey?: string) => void}
  */
 function exteditorEachAddressType(cb) {
+    cb("addr_reply", "replyTo", prefEditHeaders[exteditor_REPLY_TO] ? exteditor_REPLY_TO.toLowerCase() : undefined);
     cb("addr_to", "to", prefEditHeaders[exteditor_TO] ? exteditor_TO.toLowerCase() : undefined);
     cb("addr_cc", "cc", prefEditHeaders[exteditor_CC] ? exteditor_CC.toLowerCase() : undefined);
     cb("addr_bcc", "bcc", prefEditHeaders[exteditor_BCC] ? exteditor_BCC.toLowerCase() : undefined);
-    cb("addr_reply", "replyTo", prefEditHeaders[exteditor_REPLY_TO] ? exteditor_REPLY_TO.toLowerCase() : undefined);
     cb("addr_newsgroups", "newsgroups", prefEditHeaders[exteditor_NEWSGROUP] ? exteditor_NEWSGROUP.toLowerCase() : undefined);
 }
 
