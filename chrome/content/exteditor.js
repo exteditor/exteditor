@@ -184,30 +184,19 @@ function updateEditor() {
                 Recipients2CompFields(msgCompFields);
 
                 let knownTypes = new Set();
-                let hasChange = true;
                 exteditorEachAddressType((recipientType, compFieldKey, headerKey) => {
                     knownTypes.add(recipientType);
-
-                    if (headerKey && !hasChange) {
-                        let edited = msgCompFields.splitRecipients(headerHash[headerKey], false, {}).join(",");
-                        let original = msgCompFields.splitRecipients(msgCompFields[compFieldKey], false, {}).join(",");
-
-                        hasChange = edited !== original;
-                    }
                 })
 
-                // Rewrite all fields if any of the field is changed
-                if (hasChange) {
-                    exteditorClearRecipientOfType(knownTypes);
-                    awCleanupRows();
+                exteditorClearRecipientOfType(knownTypes);
+                awCleanupRows();
 
-                    exteditorEachAddressType((recipientType, compFieldKey, headerKey) => {
-                        let addresses = headerKey ? headerHash[headerKey] : msgCompFields[compFieldKey];
-                        awAddRecipients(msgCompFields, recipientType, addresses);
-                    });
+                exteditorEachAddressType((recipientType, compFieldKey, headerKey) => {
+                    let addresses = headerKey ? headerHash[headerKey] : msgCompFields[compFieldKey];
+                    awAddRecipients(msgCompFields, recipientType, addresses);
+                });
 
-                    awCleanupRows();
-                }
+                awCleanupRows();
             }
         } else {
             // No headers edition here
