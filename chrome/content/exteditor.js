@@ -101,11 +101,11 @@ function launchExtEditor() {
         Recipients2CompFields(msgCompFields);
 
         if (prefEditHeaders[exteditor_SUBJECT]) content += exteditor_SUBJECT + ":   " + subject + newLine;
-        if (prefEditHeaders[exteditor_TO]) content += exteditor_TO + ":        " + msgCompFields.to + newLine;
-        if (prefEditHeaders[exteditor_CC]) content += exteditor_CC + ":        " + msgCompFields.cc + newLine;
-        if (prefEditHeaders[exteditor_BCC]) content += exteditor_BCC + ":       " + msgCompFields.bcc + newLine;
-        if (prefEditHeaders[exteditor_REPLY_TO]) content += exteditor_REPLY_TO + ":  " + msgCompFields.replyTo + newLine;
-        if (prefEditHeaders[exteditor_NEWSGROUP]) content += exteditor_NEWSGROUP + ": " + msgCompFields.newsgroups + newLine;
+        if (prefEditHeaders[exteditor_TO]) content += exteditor_TO + ":        " + normalizeRecipients(msgCompFields.to) + newLine;
+        if (prefEditHeaders[exteditor_CC]) content += exteditor_CC + ":        " + normalizeRecipients(msgCompFields.cc) + newLine;
+        if (prefEditHeaders[exteditor_BCC]) content += exteditor_BCC + ":       " + normalizeRecipients(msgCompFields.bcc) + newLine;
+        if (prefEditHeaders[exteditor_REPLY_TO]) content += exteditor_REPLY_TO + ":  " + normalizeRecipients(msgCompFields.replyTo) + newLine;
+        if (prefEditHeaders[exteditor_NEWSGROUP]) content += exteditor_NEWSGROUP + ": " + normalizeRecipients(msgCompFields.newsgroups) + newLine;
         content += headersEnd;
     }
 
@@ -130,6 +130,15 @@ function launchExtEditor() {
     }
 }
 
+/**
+ * Normalizes an email address list.
+ *
+ * @param {string} fieldValue comma-separated list of email address that may be MIME escaped
+ * @returns {string} unescaped comma-separated list of email address
+ */
+function normalizeRecipients(fieldValue) {
+    return gMsgCompose.compFields.splitRecipients(fieldValue, false, {}).join(",");
+}
 
 //-----------------------------------------------------------------------------
 function updateEditor() {
