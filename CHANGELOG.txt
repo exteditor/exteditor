@@ -1,6 +1,6 @@
 v2.0.1 (11 Oct 2019)
 
-    [new] Pass addresses with non-ASCII name as is to the external editor (#44)
+    [new] Addresses with non-ASCII name now passed as-is to the external editor (#44)
     [bug] Send button and address fields won't work sometimes after closing the external editor (#39)
     [bug] Recipient fields (like CC or BCC) duplicating due to Thunderbird internal change (#35)
 
