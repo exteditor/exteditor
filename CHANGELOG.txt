@@ -1,10 +1,8 @@
-v2.0.1-rc1 (08 Oct 2019)
+v2.0.1 (11 Oct 2019)
 
-    [bug] Send button and address fields won't work sometimes after closing external editor (#39)
-
-v2.0.1-rc0 (31 Aug 2019)
-
-    [bug] Workaround for recipient fields (like CC or BCC) duplicating due to Thunderbird internal change (#35)
+    [new] Addresses with non-ASCII name now passed as-is to the external editor (#44)
+    [bug] Send button and address fields won't work sometimes after closing the external editor (#39)
+    [bug] Recipient fields (like CC or BCC) duplicating due to Thunderbird internal change (#35)
 
 v2.0.0 (31 Aug 2019)
 
