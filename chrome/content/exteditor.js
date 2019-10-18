@@ -122,6 +122,9 @@ function launchExtEditor() {
     extEditorWriteFile(content, prefEditorUnicode, file);
 
     var params = new Array(file);
+    if (editorObserver) {
+        editorObserver.unregister();
+    }
     editorObserver = new extEditorObserver();
     extEditorRunProgram(prefNotifierExe, params, editorObserver); // non blocking call
 }
