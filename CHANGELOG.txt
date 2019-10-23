@@ -1,3 +1,7 @@
+v2.0.2 (23 Oct 2019)
+
+    [bug] Addresses passed to the external editor should be separated with comma-and-space, not only comma (#50)
+
 v2.0.1 (11 Oct 2019)
 
     [new] Addresses with non-ASCII name now passed as-is to the external editor (#44)
