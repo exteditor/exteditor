@@ -137,7 +137,7 @@ function launchExtEditor() {
  * @returns {string} unescaped comma-separated list of email address
  */
 function normalizeRecipients(fieldValue) {
-    return gMsgCompose.compFields.splitRecipients(fieldValue, false, {}).join(",");
+    return gMsgCompose.compFields.splitRecipients(fieldValue, false, {}).join(", ");
 }
 
 //-----------------------------------------------------------------------------
