@@ -63,6 +63,7 @@ extEditorObserver.prototype = {
 //-----------------------------------------------------------------------------
 
 var settingsObserver;
+var editorObserver;
 var dirSeparator;
 var pathSeparator;
 var osType;
@@ -486,7 +487,7 @@ function extEditorWriteFile(data, isUnicode, filename) {
         file.initWithPath(filename);
         try {
             /* raises an error if the file already exists */
-            file.create(Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 0600);
+            file.create(Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 0o600);
         }
         catch (e) {
             extEditorError(getLocaleString("CantCreateTmpFile") + " '" + filename + "': " + e);
@@ -502,7 +503,7 @@ function extEditorWriteFile(data, isUnicode, filename) {
         var stream = Components.classes["@mozilla.org/network/file-output-stream;1"].
             createInstance(Components.interfaces.nsIFileOutputStream);
         var PR_WRONLY = 0x02;
-        stream.init(file, PR_WRONLY, 0600, 0);
+        stream.init(file, PR_WRONLY, 0o600, 0);
         stream.write(data, data.length);
         stream.flush()
         stream.close();
@@ -517,7 +518,7 @@ function extEditorWriteFile(data, isUnicode, filename) {
 //-----------------------------------------------------------------------------
 function extEditorReadFile(filename, isUnicode) {
     var MODE_RDONLY = 0x01;
-    var PERM_IRUSR = 00400;
+    var PERM_IRUSR = 0o0400;
 
     try {
         var file = makeIFile();
@@ -573,7 +574,7 @@ function extEditorRunProgram(executable, args, observer) {
     }
 
     // replace any null or undefined value by an empty string
-    for (i = 0; i < args.length; i++) {
+    for (let i = 0; i < args.length; i++) {
         if (args[i] == null || args[i] == undefined) {
             args[i] = "";
         }
@@ -598,7 +599,7 @@ function extEditorRunProgram(executable, args, observer) {
                     getService(Components.interfaces.nsIEnvironment);
                 var path = env.get("PATH").split(pathSeparator);
                 var found = false;
-                for (i = 0; i < path.length; i++) {
+                for (let i = 0; i < path.length; i++) {
                     try {
                         exec.initWithPath(path[i]);
                         exec.appendRelativePath(executable);
@@ -675,15 +676,6 @@ function analyzeCmdLine(str) {
         buffer = "";
     }
     return args;
-}
-
-//-----------------------------------------------------------------------------
-function printList(titre, array) {
-    var msg = titre + "\nNb elements: " + array.length + "\n";
-    for (i = 0; i < array.length; i++) {
-        msg += "\n" + i + ": " + array[i];
-    }
-    extEditorError(msg);
 }
 
 //-----------------------------------------------------------------------------
