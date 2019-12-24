@@ -137,7 +137,19 @@ function launchExtEditor() {
  * @returns {string} unescaped comma-separated list of email address
  */
 function normalizeRecipients(fieldValue) {
-    return gMsgCompose.compFields.splitRecipients(fieldValue, false, {}).join(", ");
+    const headerParser = MailServices.headerParser;
+    return gMsgCompose.compFields.splitRecipients(fieldValue, false, {})
+        .map((addr) => {
+            try {
+                const [{ name, email }] = headerParser.makeFromDisplayAddress(addr, {});
+                if (name !== undefined && email !== undefined) {
+                    return headerParser.makeMimeAddress(name, email);
+                }
+            } catch (e) {
+            }
+            return addr;
+        })
+        .join(", ");
 }
 
 //-----------------------------------------------------------------------------
