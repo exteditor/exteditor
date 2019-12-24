@@ -13,7 +13,7 @@
     id="exteditor-settings"
     orient="vertical"
     flex="0"
-    onload="onLoad();"
+    onload="ExternalEditor.onLoad();"
     buttons="accept,cancel"
     persist="screenX screenY">
 
@@ -37,16 +37,16 @@
                             preftype="string"
                             prefattribute="value"
                             prefstring="exteditor.default.editor"/>
-                <button id="exteditor_btBrowse" label="&exteditor_btBrowse.label;" oncommand="selectEditor();"/>
+                <button id="exteditor_btBrowse" label="&exteditor_btBrowse.label;" oncommand="ExternalEditor.selectEditor();"/>
             </hbox>
             <checkbox   id="exteditor_cbEditorUnicode"
                         label="&exteditor_cbEditorUnicode.label;"
-                        preftype="bool" 
+                        preftype="bool"
                         prefattribute="checked"
                         prefstring="exteditor.editor.unicode"/>
             <checkbox   id="exteditor_cbEditor83Filename"
                         label="&exteditor_cbEditor83Filename.label;"
-                        preftype="bool" 
+                        preftype="bool"
                         prefattribute="checked"
                         prefstring="exteditor.editor.83filename"/>
             <hbox align="center">
@@ -61,8 +61,8 @@
             <checkbox   id="exteditor_cbEditHeaders"
                         label="&exteditor_cbEditHeaders.label;"
                         tooltiptext="&exteditor_cbEditHeaders.tooltiptext;"
-                        oncommand="activate('exteditor_cbEditHeaders', 'exteditor_brcstEditHeaders')"
-                        preftype="bool" 
+                        oncommand="ExternalEditor.activate('exteditor_cbEditHeaders', 'exteditor_brcstEditHeaders')"
+                        preftype="bool"
                         prefattribute="checked"
                         prefstring="exteditor.headers.edit"/>
         </caption>
@@ -77,19 +77,19 @@
                     <checkbox   id="exteditor_cbEditHeaderSubject"
                                 label="&exteditor_cbEditHeaderSubject.label;"
                                 observes="exteditor_brcstEditHeaders"
-                                preftype="bool" 
+                                preftype="bool"
                                 prefattribute="checked"
                                 prefstring="exteditor.headers.edit.subject"/>
                     <checkbox   id="exteditor_cbEditHeaderTo"
                                 label="&exteditor_cbEditHeaderTo.label;"
                                 observes="exteditor_brcstEditHeaders"
-                                preftype="bool" 
+                                preftype="bool"
                                 prefattribute="checked"
                                 prefstring="exteditor.headers.edit.to"/>
                     <checkbox   id="exteditor_cbEditHeaderCc"
                                 label="&exteditor_cbEditHeaderCc.label;"
                                 observes="exteditor_brcstEditHeaders"
-                                preftype="bool" 
+                                preftype="bool"
                                 prefattribute="checked"
                                 prefstring="exteditor.headers.edit.cc"/>
                 </row>
@@ -97,19 +97,19 @@
                     <checkbox   id="exteditor_cbEditHeaderBcc"
                                 label="&exteditor_cbEditHeaderBcc.label;"
                                 observes="exteditor_brcstEditHeaders"
-                                preftype="bool" 
+                                preftype="bool"
                                 prefattribute="checked"
                                 prefstring="exteditor.headers.edit.bcc"/>
                     <checkbox   id="exteditor_cbEditHeaderReplyTo"
                                 label="&exteditor_cbEditHeaderReplyTo.label;"
                                 observes="exteditor_brcstEditHeaders"
-                                preftype="bool" 
+                                preftype="bool"
                                 prefattribute="checked"
                                 prefstring="exteditor.headers.edit.replyto"/>
                     <checkbox   id="exteditor_cbEditHeaderNewsgroup"
                                 label="&exteditor_cbEditHeaderNewsgroup.label;"
                                 observes="exteditor_brcstEditHeaders"
-                                preftype="bool" 
+                                preftype="bool"
                                 prefattribute="checked"
                                 prefstring="exteditor.headers.edit.newsgroup"/>
                 </row>
