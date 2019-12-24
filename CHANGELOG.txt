@@ -1,3 +1,8 @@
+v2.0.3 (23 Oct 2019)
+
+    [bug] Commas inside addresses create wrong split upon return from editor (#54)
+    [bug] Variable name conflicts with other add-ons make them non-functional or vice versa (#53)
+
 v2.0.2 (23 Oct 2019)
 
     [bug] Addresses passed to the external editor should be separated with comma-and-space, not only comma (#50)
