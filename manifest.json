@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "External Editor",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "author": "exteditor contributors",
   "homepage_url": "https://github.com/exteditor/exteditor/",
   "description": "__MSG_description__",
