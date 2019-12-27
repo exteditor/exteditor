@@ -1,4 +1,8 @@
-v2.0.3 (23 Oct 2019)
+v2.0.4-rc0 (25 Jan 2020)
+
+    [new] Editor path textbox on the option window is not shown on Thunderbird 71 beta (#52)
+
+v2.0.3 (24 Dec 2019)
 
     [bug] Commas inside addresses create wrong split upon return from editor (#54)
     [bug] Variable name conflicts with other add-ons make them non-functional or vice versa (#53)
