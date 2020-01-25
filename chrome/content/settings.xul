@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://messenger/skin/" type="text/css"?>
-
+<?xml-stylesheet href="chrome://messenger/skin/input-fields.css" type="text/css"?>
 <?xml-stylesheet
     href="chrome://exteditor/content/exteditor.css"
     type="text/css"?>
@@ -8,6 +8,7 @@
 <!DOCTYPE dialog SYSTEM "chrome://exteditor/locale/exteditor.dtd">
 
 <dialog    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:exteditor="http://forums.mozillazine.org/rdf/exteditor#"
     title="&exteditor-settings.title;"
     id="exteditor-settings"
@@ -17,12 +18,14 @@
     buttons="accept,cancel"
     persist="screenX screenY">
 
+    <script type="application/x-javascript" src="chrome://global/content/globalOverlay.js"/>
+    <script type="application/x-javascript" src="chrome://global/content/editMenuOverlay.js"/>
+
     <script type="application/x-javascript"
         src="chrome://exteditor/content/pref.js" />
 
     <script type="application/x-javascript"
         src="chrome://exteditor/content/settings.js" />
-
     <broadcaster id="exteditor_brcstEditHeaders"/>
 
     <description value="&exteditor-settings.title;"/>
@@ -30,10 +33,9 @@
     <groupbox>
         <caption><label id="exteditor_exe" value="&exteditor_exe.label;"/></caption>
         <vbox align="stretch">
-            <hbox align="center">
+            <hbox align="center" class="input-container">
                 <label id="exteditor_editor" value="&exteditor_editor.value;"/>
-                <textbox    id="exteditor_leEditor"
-                            flex="1"
+                <html:input id="exteditor_leEditor"
                             preftype="string"
                             prefattribute="value"
                             prefstring="exteditor.default.editor"/>
