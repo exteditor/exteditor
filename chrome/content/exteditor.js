@@ -215,15 +215,18 @@ You can obtain one at https://mozilla.org/MPL/2.0/.
 
                     let knownTypes = new Set();
                     exteditorEachAddressType((recipientType, compFieldKey, headerKey) => {
-                        knownTypes.add(recipientType);
+                        if (headerKey)
+                            knownTypes.add(recipientType);
                     })
 
                     exteditorClearRecipientOfType(knownTypes);
                     awCleanupRows();
 
                     exteditorEachAddressType((recipientType, compFieldKey, headerKey) => {
-                        let addresses = headerKey ? headerHash[headerKey] : msgCompFields[compFieldKey];
-                        awAddRecipients(msgCompFields, recipientType, addresses);
+                        if (headerKey) {
+                            let addresses = headerHash[headerKey];
+                            awAddRecipients(msgCompFields, recipientType, addresses);
+                        }
                     });
 
                     awCleanupRows();
