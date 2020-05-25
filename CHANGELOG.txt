@@ -1,6 +1,7 @@
-v2.0.4-rc0 (25 Jan 2020)
+v2.0.4 (25 May 2020)
 
-    [new] Editor path textbox on the option window is not shown on Thunderbird 71 beta (#52)
+    [bug] When posting to a newsgroup, opening and closing the editor changes the destination (#63)
+    The bug is still present, but one can uncheck Newsgroup from header editing option now as a workaround.
 
 v2.0.3 (24 Dec 2019)
 
