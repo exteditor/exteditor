@@ -1,3 +1,8 @@
+v2.0.5-rc0 (28 May 2020)
+
+    [bug] Cited text shows up as ordinary text after returning from external editor (#66)
+    This patch may fix the problem on Ubuntu. The problem is still present on Mac and Windows.
+
 v2.0.4 (25 May 2020)
 
     [bug] When posting to a newsgroup, opening and closing the editor changes the destination (#63)
