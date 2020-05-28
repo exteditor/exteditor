@@ -264,7 +264,11 @@ You can obtain one at https://mozilla.org/MPL/2.0/.
                 // The selection did not exist yet. Everything should be fine
             }
             if (messageText) {
-                editor.insertText(messageText);
+                if ("insertTextWithQuotations" in editor) {
+                    editor.insertTextWithQuotations(messageText);
+                } else {
+                    editor.insertText(messageText);
+                }
             }
         }
     }
