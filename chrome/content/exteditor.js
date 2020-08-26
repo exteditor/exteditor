@@ -161,6 +161,43 @@ You can obtain one at https://mozilla.org/MPL/2.0/.
             .join(", ");
     }
 
+    function extEditorInsertTextWithQuotations(editor, text) {
+        let citationRegex = /^[>|] ?/;
+
+        let lines = text.split('\n');
+
+        let citing = false;
+        let block = '';
+        for (let i = 0; i < lines.length; i++) {
+            if (lines[i].match(citationRegex)) {
+                if (!citing) {
+                    editor.insertText(block);
+                    block = '';
+                    citing = true;
+                }
+                block = block + lines[i].replace(citationRegex, '') + '\n';
+            } else {
+                if (citing) {
+                    editor.insertAsCitedQuotation(block, null, false);
+                    block = '';
+                    citing = false;
+                }
+                block = block + lines[i] + '\n';
+            }
+        }
+
+        if (block.length < 2) {
+            return;
+        }
+        block = block.slice(0, block.length - 1);
+
+        if (citing) {
+            editor.insertAsCitedQuotation(block, null, false);
+        } else {
+            editor.insertText(block);
+        }
+    }
+
     //-----------------------------------------------------------------------------
     function updateEditor() {
         var content = extEditorReadFile(file, prefEditorUnicode);
@@ -267,7 +304,7 @@ You can obtain one at https://mozilla.org/MPL/2.0/.
                 if ("insertTextWithQuotations" in editor) {
                     editor.insertTextWithQuotations(messageText);
                 } else {
-                    editor.insertText(messageText);
+                    extEditorInsertTextWithQuotations(editor, messageText);
                 }
             }
         }
