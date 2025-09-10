@@ -1,3 +1,20 @@
+# External Editor - Archived
+
+This repository contains an outdated Thunderbird add-on that works with Thunderbird versions prior to 68.
+
+Add-ons that work with current versions of Thunderbird:
+
+* [External Editor Revived](https://github.com/Frederick888/external-editor-revived), mature and available on [AMO][revived].
+
+  [![External Editor Revived](https://raw.githubusercontent.com/thunderbird/webext-support/refs/heads/master/images/get-the-addon.svg)][revived]
+
+* [Ghostbird][ghostbird], still in alpha.
+
+[revived]: https://addons.thunderbird.net/en-US/thunderbird/addon/external-editor-revived/
+[ghostbird]: https://github.com/exteditor/ghostbird/
+
+<details>
+<summary>Old README</summary>
 # External Editor
 
 [![Latest release](https://badge.fury.io/gh/exteditor%2Fexteditor.svg)](https://github.com/exteditor/exteditor/releases)
@@ -83,3 +100,4 @@ Make sure you have perl and zip installed on your system and run:
 * [Change key binding](http://globs.org/thread.php?lng=en&pg=231&fid=10&cat=1)
 * https://developer.mozilla.org/en-US/docs/XUL
 * [When will XUL be deprecated for Thunderbird?](https://discourse.mozilla-community.org/t/introduction-to-add-on-development/608/27)
+</details>
