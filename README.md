@@ -4,17 +4,21 @@ This repository contains an outdated Thunderbird add-on that works with Thunderb
 
 Add-ons that work with current versions of Thunderbird:
 
-* [External Editor Revived](https://github.com/Frederick888/external-editor-revived), mature and available on [AMO][revived].
+* [External Editor Revived](https://github.com/Frederick888/external-editor-revived), mature and actively maintained.
 
   [![External Editor Revived](https://raw.githubusercontent.com/thunderbird/webext-support/refs/heads/master/images/get-the-addon.svg)][revived]
 
-* [Ghostbird][ghostbird], still in alpha.
+* [Ghostbird][ghostbird], still in beta.
 
-[revived]: https://addons.thunderbird.net/en-US/thunderbird/addon/external-editor-revived/
+  [![Ghostbird](https://raw.githubusercontent.com/thunderbird/webext-support/refs/heads/master/images/get-the-addon.svg)][gb]
+
+[revived]: https://addons.thunderbird.net/addon/external-editor-revived/
 [ghostbird]: https://github.com/exteditor/ghostbird/
+[gb]: https://addons.thunderbird.net/addon/ghostbird/
 
 <details>
 <summary>Old README</summary>
+
 # External Editor
 
 [![Latest release](https://badge.fury.io/gh/exteditor%2Fexteditor.svg)](https://github.com/exteditor/exteditor/releases)
